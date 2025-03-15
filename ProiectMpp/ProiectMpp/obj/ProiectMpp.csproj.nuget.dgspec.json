@@ -1,0 +1,81 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/ProiectMpp.csproj": {}
+  },
+  "projects": {
+    "/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/ProiectMpp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/ProiectMpp.csproj",
+        "projectName": "ProiectMpp",
+        "projectPath": "/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/ProiectMpp.csproj",
+        "packagesPath": "/Users/horatiubanciu/.nuget/packages/",
+        "outputPath": "/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/horatiubanciu/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.CSharp": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "Mono.Data.Sqlite": {
+              "target": "Package",
+              "version": "[1.0.61, )"
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[3.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/horatiubanciu/.dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

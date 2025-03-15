@@ -1,0 +1,316 @@
+11 Mar 2025 10:36:06,164 INFO  project.lab3.CarsDBRepository 20 <init> - Initializing CarsDBRepository with properties: {jdbc=sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db}
+11 Mar 2025 10:36:06,166 TRACE project.lab3.CarsDBRepository 79 add - Enter saving task{}
+11 Mar 2025 10:36:06,166 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:36:06,166 TRACE project.lab3.JdbcUtils 25 getNewConnection - Enter
+11 Mar 2025 10:36:06,166 INFO  project.lab3.JdbcUtils 30 getNewConnection - trying to connect to database ... null
+11 Mar 2025 10:36:06,166 INFO  project.lab3.JdbcUtils 31 getNewConnection - user: null
+11 Mar 2025 10:36:06,166 INFO  project.lab3.JdbcUtils 32 getNewConnection - pass: null
+11 Mar 2025 10:36:06,167 ERROR project.lab3.JdbcUtils 41 getNewConnection - java.sql.SQLException: The url cannot be null
+11 Mar 2025 10:36:06,167 TRACE project.lab3.JdbcUtils 57 getConnection - Exit
+11 Mar 2025 10:36:50,586 INFO  project.lab3.CarsDBRepository 20 <init> - Initializing CarsDBRepository with properties: {jdbc=sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db}
+11 Mar 2025 10:36:50,588 TRACE project.lab3.CarsDBRepository 79 add - Enter saving task{}
+11 Mar 2025 10:36:50,588 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:36:50,588 TRACE project.lab3.JdbcUtils 25 getNewConnection - Enter
+11 Mar 2025 10:36:50,588 INFO  project.lab3.JdbcUtils 30 getNewConnection - trying to connect to database ... null
+11 Mar 2025 10:36:50,588 INFO  project.lab3.JdbcUtils 31 getNewConnection - user: null
+11 Mar 2025 10:36:50,588 INFO  project.lab3.JdbcUtils 32 getNewConnection - pass: null
+11 Mar 2025 10:36:50,589 ERROR project.lab3.JdbcUtils 41 getNewConnection - java.sql.SQLException: The url cannot be null
+11 Mar 2025 10:36:50,589 TRACE project.lab3.JdbcUtils 57 getConnection - Exit
+11 Mar 2025 10:36:56,724 INFO  project.lab3.CarsDBRepository 20 <init> - Initializing CarsDBRepository with properties: {jdbc=sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db}
+11 Mar 2025 10:36:56,725 TRACE project.lab3.CarsDBRepository 79 add - Enter saving task{}
+11 Mar 2025 10:36:56,726 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:36:56,726 TRACE project.lab3.JdbcUtils 25 getNewConnection - Enter
+11 Mar 2025 10:36:56,726 INFO  project.lab3.JdbcUtils 30 getNewConnection - trying to connect to database ... null
+11 Mar 2025 10:36:56,726 INFO  project.lab3.JdbcUtils 31 getNewConnection - user: null
+11 Mar 2025 10:36:56,726 INFO  project.lab3.JdbcUtils 32 getNewConnection - pass: null
+11 Mar 2025 10:36:56,727 ERROR project.lab3.JdbcUtils 41 getNewConnection - java.sql.SQLException: The url cannot be null
+11 Mar 2025 10:36:56,727 TRACE project.lab3.JdbcUtils 57 getConnection - Exit
+11 Mar 2025 10:37:09,618 INFO  project.lab3.CarsDBRepository 20 <init> - Initializing CarsDBRepository with properties: {jdbc=sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db}
+11 Mar 2025 10:37:09,620 TRACE project.lab3.CarsDBRepository 79 add - Enter saving task{}
+11 Mar 2025 10:37:09,620 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:37:09,620 TRACE project.lab3.JdbcUtils 25 getNewConnection - Enter
+11 Mar 2025 10:37:09,620 INFO  project.lab3.JdbcUtils 30 getNewConnection - trying to connect to database ... null
+11 Mar 2025 10:37:09,620 INFO  project.lab3.JdbcUtils 31 getNewConnection - user: null
+11 Mar 2025 10:37:09,621 INFO  project.lab3.JdbcUtils 32 getNewConnection - pass: null
+11 Mar 2025 10:37:09,621 ERROR project.lab3.JdbcUtils 41 getNewConnection - java.sql.SQLException: The url cannot be null
+11 Mar 2025 10:37:09,622 TRACE project.lab3.JdbcUtils 57 getConnection - Exit
+11 Mar 2025 10:39:37,114 INFO  project.lab3.CarsDBRepository 20 <init> - Initializing CarsDBRepository with properties: {jdbc.url=/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db}
+11 Mar 2025 10:39:37,117 TRACE project.lab3.CarsDBRepository 79 add - Enter saving task{}
+11 Mar 2025 10:39:37,117 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:39:37,117 TRACE project.lab3.JdbcUtils 25 getNewConnection - Enter
+11 Mar 2025 10:39:37,117 INFO  project.lab3.JdbcUtils 30 getNewConnection - trying to connect to database ... /Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db
+11 Mar 2025 10:39:37,117 INFO  project.lab3.JdbcUtils 31 getNewConnection - user: null
+11 Mar 2025 10:39:37,117 INFO  project.lab3.JdbcUtils 32 getNewConnection - pass: null
+11 Mar 2025 10:39:37,121 ERROR project.lab3.JdbcUtils 41 getNewConnection - java.sql.SQLException: No suitable driver found for /Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db
+11 Mar 2025 10:39:37,121 TRACE project.lab3.JdbcUtils 57 getConnection - Exit
+11 Mar 2025 10:39:46,956 INFO  project.lab3.CarsDBRepository 20 <init> - Initializing CarsDBRepository with properties: {jdbc.url="/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db"}
+11 Mar 2025 10:39:46,958 TRACE project.lab3.CarsDBRepository 79 add - Enter saving task{}
+11 Mar 2025 10:39:46,959 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:39:46,959 TRACE project.lab3.JdbcUtils 25 getNewConnection - Enter
+11 Mar 2025 10:39:46,959 INFO  project.lab3.JdbcUtils 30 getNewConnection - trying to connect to database ... "/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db"
+11 Mar 2025 10:39:46,959 INFO  project.lab3.JdbcUtils 31 getNewConnection - user: null
+11 Mar 2025 10:39:46,959 INFO  project.lab3.JdbcUtils 32 getNewConnection - pass: null
+11 Mar 2025 10:39:46,962 ERROR project.lab3.JdbcUtils 41 getNewConnection - java.sql.SQLException: No suitable driver found for "/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db"
+11 Mar 2025 10:39:46,962 TRACE project.lab3.JdbcUtils 57 getConnection - Exit
+11 Mar 2025 10:41:11,572 INFO  project.lab3.CarsDBRepository 20 <init> - Initializing CarsDBRepository with properties: {jdbc.url=jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru%204/mpp/lab03_mpp.db}
+11 Mar 2025 10:41:11,574 TRACE project.lab3.CarsDBRepository 79 add - Enter saving task{}
+11 Mar 2025 10:41:11,574 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:41:11,575 TRACE project.lab3.JdbcUtils 25 getNewConnection - Enter
+11 Mar 2025 10:41:11,575 INFO  project.lab3.JdbcUtils 30 getNewConnection - trying to connect to database ... jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru%204/mpp/lab03_mpp.db
+11 Mar 2025 10:41:11,575 INFO  project.lab3.JdbcUtils 31 getNewConnection - user: null
+11 Mar 2025 10:41:11,575 INFO  project.lab3.JdbcUtils 32 getNewConnection - pass: null
+11 Mar 2025 10:41:11,584 ERROR project.lab3.JdbcUtils 41 getNewConnection - java.sql.SQLException: path to '/Users/horatiubanciu/code/Facultate/semestru%204/mpp/lab03_mpp.db': '/Users/horatiubanciu/code/Facultate/semestru%204' does not exist
+11 Mar 2025 10:41:11,585 TRACE project.lab3.JdbcUtils 57 getConnection - Exit
+11 Mar 2025 10:41:48,181 INFO  project.lab3.CarsDBRepository 20 <init> - Initializing CarsDBRepository with properties: {jdbc.url=jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db}
+11 Mar 2025 10:41:48,183 TRACE project.lab3.CarsDBRepository 79 add - Enter saving task{}
+11 Mar 2025 10:41:48,183 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:41:48,183 TRACE project.lab3.JdbcUtils 25 getNewConnection - Enter
+11 Mar 2025 10:41:48,184 INFO  project.lab3.JdbcUtils 30 getNewConnection - trying to connect to database ... jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db
+11 Mar 2025 10:41:48,184 INFO  project.lab3.JdbcUtils 31 getNewConnection - user: null
+11 Mar 2025 10:41:48,184 INFO  project.lab3.JdbcUtils 32 getNewConnection - pass: null
+11 Mar 2025 10:41:48,440 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:41:48,442 ERROR project.lab3.CarsDBRepository 87 add - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such table: Masini)
+11 Mar 2025 10:42:02,389 INFO  project.lab3.CarsDBRepository 20 <init> - Initializing CarsDBRepository with properties: {jdbc.url=jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db}
+11 Mar 2025 10:42:02,391 TRACE project.lab3.CarsDBRepository 79 add - Enter saving task{}
+11 Mar 2025 10:42:02,391 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:42:02,391 TRACE project.lab3.JdbcUtils 25 getNewConnection - Enter
+11 Mar 2025 10:42:02,391 INFO  project.lab3.JdbcUtils 30 getNewConnection - trying to connect to database ... jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db
+11 Mar 2025 10:42:02,392 INFO  project.lab3.JdbcUtils 31 getNewConnection - user: null
+11 Mar 2025 10:42:02,392 INFO  project.lab3.JdbcUtils 32 getNewConnection - pass: null
+11 Mar 2025 10:42:02,572 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:42:02,574 TRACE project.lab3.CarsDBRepository 90 add - Exit
+11 Mar 2025 10:42:02,574 TRACE project.lab3.CarsDBRepository 113 findAll - Enter
+11 Mar 2025 10:42:02,574 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:42:02,574 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:42:02,578 TRACE project.lab3.CarsDBRepository 131 findAll - Exit with([Id=0 Dacia Logan 2019])
+11 Mar 2025 10:42:02,578 TRACE project.lab3.CarsDBRepository 26 findByManufacturer - Enter
+11 Mar 2025 10:42:02,578 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:42:02,578 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:42:02,578 TRACE project.lab3.CarsDBRepository 45 findByManufacturer - Exit with([Id=0 Dacia Logan 2019])
+11 Mar 2025 10:42:02,579 TRACE project.lab3.CarsDBRepository 52 findBetweenYears - Enter
+11 Mar 2025 10:42:02,579 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:42:02,579 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:42:02,579 TRACE project.lab3.CarsDBRepository 72 findBetweenYears - Exit with([Id=0 Dacia Logan 2019])
+11 Mar 2025 10:42:02,579 TRACE project.lab3.CarsDBRepository 95 update - Enter
+11 Mar 2025 10:42:02,579 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:42:02,579 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:42:02,579 TRACE project.lab3.CarsDBRepository 107 update - Exit
+11 Mar 2025 10:42:02,579 TRACE project.lab3.CarsDBRepository 26 findByManufacturer - Enter
+11 Mar 2025 10:42:02,580 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:42:02,580 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:42:02,580 TRACE project.lab3.CarsDBRepository 45 findByManufacturer - Exit with([Id=0 Dacia Logan 2019])
+11 Mar 2025 10:42:22,890 INFO  project.lab3.CarsDBRepository 20 <init> - Initializing CarsDBRepository with properties: {jdbc.url=jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db}
+11 Mar 2025 10:42:22,892 TRACE project.lab3.CarsDBRepository 79 add - Enter saving task{}
+11 Mar 2025 10:42:22,892 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:42:22,893 TRACE project.lab3.JdbcUtils 25 getNewConnection - Enter
+11 Mar 2025 10:42:22,893 INFO  project.lab3.JdbcUtils 30 getNewConnection - trying to connect to database ... jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db
+11 Mar 2025 10:42:22,893 INFO  project.lab3.JdbcUtils 31 getNewConnection - user: null
+11 Mar 2025 10:42:22,893 INFO  project.lab3.JdbcUtils 32 getNewConnection - pass: null
+11 Mar 2025 10:42:23,072 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:42:23,075 TRACE project.lab3.CarsDBRepository 90 add - Exit
+11 Mar 2025 10:42:23,075 TRACE project.lab3.CarsDBRepository 113 findAll - Enter
+11 Mar 2025 10:42:23,075 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:42:23,075 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:42:23,079 TRACE project.lab3.CarsDBRepository 131 findAll - Exit with([Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019])
+11 Mar 2025 10:42:23,079 TRACE project.lab3.CarsDBRepository 26 findByManufacturer - Enter
+11 Mar 2025 10:42:23,079 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:42:23,079 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:42:23,080 TRACE project.lab3.CarsDBRepository 45 findByManufacturer - Exit with([Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019])
+11 Mar 2025 10:42:23,080 TRACE project.lab3.CarsDBRepository 52 findBetweenYears - Enter
+11 Mar 2025 10:42:23,080 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:42:23,080 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:42:23,080 TRACE project.lab3.CarsDBRepository 72 findBetweenYears - Exit with([Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019])
+11 Mar 2025 10:42:23,080 TRACE project.lab3.CarsDBRepository 95 update - Enter
+11 Mar 2025 10:42:23,080 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:42:23,080 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:42:23,080 TRACE project.lab3.CarsDBRepository 107 update - Exit
+11 Mar 2025 10:42:23,081 TRACE project.lab3.CarsDBRepository 26 findByManufacturer - Enter
+11 Mar 2025 10:42:23,081 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:42:23,081 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:42:23,081 TRACE project.lab3.CarsDBRepository 45 findByManufacturer - Exit with([Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019])
+11 Mar 2025 10:44:32,744 INFO  project.lab3.CarsDBRepository 20 <init> - Initializing CarsDBRepository with properties: {jdbc.url=jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db}
+11 Mar 2025 10:44:32,746 TRACE project.lab3.CarsDBRepository 79 add - Enter saving task{}
+11 Mar 2025 10:44:32,746 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:44:32,746 TRACE project.lab3.JdbcUtils 25 getNewConnection - Enter
+11 Mar 2025 10:44:32,746 INFO  project.lab3.JdbcUtils 30 getNewConnection - trying to connect to database ... jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db
+11 Mar 2025 10:44:32,746 INFO  project.lab3.JdbcUtils 31 getNewConnection - user: null
+11 Mar 2025 10:44:32,747 INFO  project.lab3.JdbcUtils 32 getNewConnection - pass: null
+11 Mar 2025 10:44:32,986 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:44:32,991 TRACE project.lab3.CarsDBRepository 90 add - Exit
+11 Mar 2025 10:44:32,991 TRACE project.lab3.CarsDBRepository 113 findAll - Enter
+11 Mar 2025 10:44:32,991 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:44:32,992 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:44:32,997 TRACE project.lab3.CarsDBRepository 131 findAll - Exit with([Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019])
+11 Mar 2025 10:44:32,998 TRACE project.lab3.CarsDBRepository 26 findByManufacturer - Enter
+11 Mar 2025 10:44:32,998 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:44:32,998 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:44:32,998 TRACE project.lab3.CarsDBRepository 45 findByManufacturer - Exit with([Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019])
+11 Mar 2025 10:44:32,998 TRACE project.lab3.CarsDBRepository 52 findBetweenYears - Enter
+11 Mar 2025 10:44:32,998 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:44:32,999 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:44:32,999 TRACE project.lab3.CarsDBRepository 72 findBetweenYears - Exit with([Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019])
+11 Mar 2025 10:44:32,999 TRACE project.lab3.CarsDBRepository 95 update - Enter
+11 Mar 2025 10:44:32,999 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:44:32,999 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:44:33,000 TRACE project.lab3.CarsDBRepository 107 update - Exit
+11 Mar 2025 10:44:33,000 TRACE project.lab3.CarsDBRepository 26 findByManufacturer - Enter
+11 Mar 2025 10:44:33,000 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:44:33,000 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:44:33,001 TRACE project.lab3.CarsDBRepository 45 findByManufacturer - Exit with([Id=0 Dacia Sandero 2021, Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019])
+11 Mar 2025 10:45:04,834 INFO  project.lab3.CarsDBRepository 20 <init> - Initializing CarsDBRepository with properties: {jdbc.url=jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db}
+11 Mar 2025 10:45:04,835 TRACE project.lab3.CarsDBRepository 79 add - Enter saving task{}
+11 Mar 2025 10:45:04,836 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:45:04,836 TRACE project.lab3.JdbcUtils 25 getNewConnection - Enter
+11 Mar 2025 10:45:04,836 INFO  project.lab3.JdbcUtils 30 getNewConnection - trying to connect to database ... jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db
+11 Mar 2025 10:45:04,836 INFO  project.lab3.JdbcUtils 31 getNewConnection - user: null
+11 Mar 2025 10:45:04,836 INFO  project.lab3.JdbcUtils 32 getNewConnection - pass: null
+11 Mar 2025 10:45:05,061 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:45:05,065 TRACE project.lab3.CarsDBRepository 90 add - Exit
+11 Mar 2025 10:45:05,065 TRACE project.lab3.CarsDBRepository 113 findAll - Enter
+11 Mar 2025 10:45:05,065 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:45:05,066 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:45:05,071 TRACE project.lab3.CarsDBRepository 131 findAll - Exit with([Id=0 Dacia Sandero 2021, Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019, Id=0 Volkswagen golf 4 2002])
+11 Mar 2025 10:45:05,071 TRACE project.lab3.CarsDBRepository 26 findByManufacturer - Enter
+11 Mar 2025 10:45:05,071 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:45:05,071 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:45:05,071 TRACE project.lab3.CarsDBRepository 45 findByManufacturer - Exit with([Id=0 Dacia Sandero 2021, Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019])
+11 Mar 2025 10:45:05,072 TRACE project.lab3.CarsDBRepository 52 findBetweenYears - Enter
+11 Mar 2025 10:45:05,072 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:45:05,072 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:45:05,072 TRACE project.lab3.CarsDBRepository 72 findBetweenYears - Exit with([Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019])
+11 Mar 2025 10:45:05,072 TRACE project.lab3.CarsDBRepository 95 update - Enter
+11 Mar 2025 10:45:05,072 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:45:05,072 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:45:05,073 TRACE project.lab3.CarsDBRepository 107 update - Exit
+11 Mar 2025 10:45:05,073 TRACE project.lab3.CarsDBRepository 26 findByManufacturer - Enter
+11 Mar 2025 10:45:05,073 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:45:05,073 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:45:05,073 TRACE project.lab3.CarsDBRepository 45 findByManufacturer - Exit with([Id=0 Dacia Sandero 2021, Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019])
+11 Mar 2025 10:45:51,383 INFO  project.lab3.CarsDBRepository 20 <init> - Initializing CarsDBRepository with properties: {jdbc.url=jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db}
+11 Mar 2025 10:45:51,385 TRACE project.lab3.CarsDBRepository 79 add - Enter saving task{}
+11 Mar 2025 10:45:51,385 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:45:51,385 TRACE project.lab3.JdbcUtils 25 getNewConnection - Enter
+11 Mar 2025 10:45:51,386 INFO  project.lab3.JdbcUtils 30 getNewConnection - trying to connect to database ... jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db
+11 Mar 2025 10:45:51,386 INFO  project.lab3.JdbcUtils 31 getNewConnection - user: null
+11 Mar 2025 10:45:51,386 INFO  project.lab3.JdbcUtils 32 getNewConnection - pass: null
+11 Mar 2025 10:45:51,592 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:45:51,596 TRACE project.lab3.CarsDBRepository 90 add - Exit
+11 Mar 2025 10:45:51,596 TRACE project.lab3.CarsDBRepository 113 findAll - Enter
+11 Mar 2025 10:45:51,596 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:45:51,596 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:45:51,600 TRACE project.lab3.CarsDBRepository 131 findAll - Exit with([Id=0 Dacia Sandero 2021, Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019, Id=0 Volkswagen golf 4 2002, Id=0 Audi A4 2015])
+11 Mar 2025 10:45:51,600 TRACE project.lab3.CarsDBRepository 26 findByManufacturer - Enter
+11 Mar 2025 10:45:51,600 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:45:51,601 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:45:51,601 TRACE project.lab3.CarsDBRepository 45 findByManufacturer - Exit with([Id=0 Dacia Sandero 2021, Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019])
+11 Mar 2025 10:45:51,601 TRACE project.lab3.CarsDBRepository 52 findBetweenYears - Enter
+11 Mar 2025 10:45:51,601 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:45:51,601 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:45:51,601 TRACE project.lab3.CarsDBRepository 72 findBetweenYears - Exit with([Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019, Id=0 Audi A4 2015])
+11 Mar 2025 10:45:51,602 TRACE project.lab3.CarsDBRepository 95 update - Enter
+11 Mar 2025 10:45:51,602 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:45:51,602 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:45:51,602 TRACE project.lab3.CarsDBRepository 107 update - Exit
+11 Mar 2025 10:45:51,602 TRACE project.lab3.CarsDBRepository 26 findByManufacturer - Enter
+11 Mar 2025 10:45:51,602 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:45:51,602 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:45:51,603 TRACE project.lab3.CarsDBRepository 45 findByManufacturer - Exit with([Id=0 Dacia Sandero 2021, Id=0 Dacia Logan 2019, Id=0 Dacia Logan 2019])
+11 Mar 2025 10:49:56,814 INFO  project.lab3.CarsDBRepository 20 <init> - Initializing CarsDBRepository with properties: {jdbc.url=jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db}
+11 Mar 2025 10:49:56,816 TRACE project.lab3.CarsDBRepository 79 add - Enter saving task{}
+11 Mar 2025 10:49:56,816 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:49:56,816 TRACE project.lab3.JdbcUtils 25 getNewConnection - Enter
+11 Mar 2025 10:49:56,816 INFO  project.lab3.JdbcUtils 30 getNewConnection - trying to connect to database ... jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db
+11 Mar 2025 10:49:56,816 INFO  project.lab3.JdbcUtils 31 getNewConnection - user: null
+11 Mar 2025 10:49:56,817 INFO  project.lab3.JdbcUtils 32 getNewConnection - pass: null
+11 Mar 2025 10:49:57,053 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:49:57,056 TRACE project.lab3.CarsDBRepository 90 add - Exit
+11 Mar 2025 10:49:57,056 TRACE project.lab3.CarsDBRepository 113 findAll - Enter
+11 Mar 2025 10:49:57,056 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:49:57,057 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:49:57,061 TRACE project.lab3.CarsDBRepository 131 findAll - Exit with([Id=0 Dacia Sandero 2021, Id=0 Dacia Logan 2019, Id=0 Mercedes-Benz E220 2019, Id=0 Volkswagen golf 4 2002, Id=0 Audi A4 2015, Id=0 Audi A4 2015])
+11 Mar 2025 10:49:57,061 TRACE project.lab3.CarsDBRepository 26 findByManufacturer - Enter
+11 Mar 2025 10:49:57,061 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:49:57,061 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:49:57,062 TRACE project.lab3.CarsDBRepository 45 findByManufacturer - Exit with([Id=0 Dacia Sandero 2021, Id=0 Dacia Logan 2019])
+11 Mar 2025 10:49:57,062 TRACE project.lab3.CarsDBRepository 52 findBetweenYears - Enter
+11 Mar 2025 10:49:57,062 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:49:57,062 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:49:57,062 TRACE project.lab3.CarsDBRepository 72 findBetweenYears - Exit with([Id=0 Dacia Logan 2019, Id=0 Mercedes-Benz E220 2019, Id=0 Audi A4 2015, Id=0 Audi A4 2015])
+11 Mar 2025 10:49:57,062 TRACE project.lab3.CarsDBRepository 113 findAll - Enter
+11 Mar 2025 10:49:57,063 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:49:57,063 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:49:57,063 TRACE project.lab3.CarsDBRepository 131 findAll - Exit with([Id=0 Dacia Sandero 2021, Id=0 Dacia Logan 2019, Id=0 Mercedes-Benz E220 2019, Id=0 Volkswagen golf 4 2002, Id=0 Audi A4 2015, Id=0 Audi A4 2015])
+11 Mar 2025 10:49:57,063 TRACE project.lab3.CarsDBRepository 95 update - Enter
+11 Mar 2025 10:49:57,063 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:49:57,063 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:49:57,064 TRACE project.lab3.CarsDBRepository 107 update - Exit
+11 Mar 2025 10:49:57,064 TRACE project.lab3.CarsDBRepository 113 findAll - Enter
+11 Mar 2025 10:49:57,064 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:49:57,064 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:49:57,064 TRACE project.lab3.CarsDBRepository 131 findAll - Exit with([Id=0 Dacia Sandero 2021, Id=0 Dacia Logan 2019, Id=0 Mercedes-Benz E220 2019, Id=0 Volskwagen golf 5 2021, Id=0 Audi A4 2015, Id=0 Audi A4 2015])
+11 Mar 2025 10:51:10,150 INFO  project.lab3.CarsDBRepository 20 <init> - Initializing CarsDBRepository with properties: {jdbc.url=jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db}
+11 Mar 2025 10:51:10,152 TRACE project.lab3.CarsDBRepository 81 add - Enter saving task{}
+11 Mar 2025 10:51:10,152 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:51:10,152 TRACE project.lab3.JdbcUtils 25 getNewConnection - Enter
+11 Mar 2025 10:51:10,152 INFO  project.lab3.JdbcUtils 30 getNewConnection - trying to connect to database ... jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db
+11 Mar 2025 10:51:10,152 INFO  project.lab3.JdbcUtils 31 getNewConnection - user: null
+11 Mar 2025 10:51:10,152 INFO  project.lab3.JdbcUtils 32 getNewConnection - pass: null
+11 Mar 2025 10:51:10,377 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:51:10,381 TRACE project.lab3.CarsDBRepository 92 add - Exit
+11 Mar 2025 10:51:10,381 TRACE project.lab3.CarsDBRepository 115 findAll - Enter
+11 Mar 2025 10:51:10,381 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:51:10,381 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:51:10,387 TRACE project.lab3.CarsDBRepository 134 findAll - Exit with([Id=1 Dacia Sandero 2021, Id=2 Dacia Logan 2019, Id=3 Mercedes-Benz E220 2019, Id=4 Volskwagen golf 5 2021, Id=5 Audi A4 2015, Id=6 Audi A4 2015, Id=7 Audi A4 2015])
+11 Mar 2025 10:51:10,387 TRACE project.lab3.CarsDBRepository 26 findByManufacturer - Enter
+11 Mar 2025 10:51:10,387 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:51:10,387 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:51:10,387 TRACE project.lab3.CarsDBRepository 46 findByManufacturer - Exit with([Id=1 Dacia Sandero 2021, Id=2 Dacia Logan 2019])
+11 Mar 2025 10:51:10,387 TRACE project.lab3.CarsDBRepository 53 findBetweenYears - Enter
+11 Mar 2025 10:51:10,388 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:51:10,388 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:51:10,388 TRACE project.lab3.CarsDBRepository 74 findBetweenYears - Exit with([Id=2 Dacia Logan 2019, Id=3 Mercedes-Benz E220 2019, Id=5 Audi A4 2015, Id=6 Audi A4 2015, Id=7 Audi A4 2015])
+11 Mar 2025 10:51:10,388 TRACE project.lab3.CarsDBRepository 115 findAll - Enter
+11 Mar 2025 10:51:10,388 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:51:10,388 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:51:10,389 TRACE project.lab3.CarsDBRepository 134 findAll - Exit with([Id=1 Dacia Sandero 2021, Id=2 Dacia Logan 2019, Id=3 Mercedes-Benz E220 2019, Id=4 Volskwagen golf 5 2021, Id=5 Audi A4 2015, Id=6 Audi A4 2015, Id=7 Audi A4 2015])
+11 Mar 2025 10:51:10,389 TRACE project.lab3.CarsDBRepository 97 update - Enter
+11 Mar 2025 10:51:10,389 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:51:10,389 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:51:10,390 TRACE project.lab3.CarsDBRepository 109 update - Exit
+11 Mar 2025 10:51:10,390 TRACE project.lab3.CarsDBRepository 115 findAll - Enter
+11 Mar 2025 10:51:10,390 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:51:10,390 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:51:10,390 TRACE project.lab3.CarsDBRepository 134 findAll - Exit with([Id=1 Dacia Sandero 2021, Id=2 Dacia Logan 2019, Id=3 Mercedes-Benz E220 2019, Id=4 Volskwagen golf 4 2002, Id=5 Audi A4 2015, Id=6 Audi A4 2015, Id=7 Audi A4 2015])
+11 Mar 2025 10:52:49,145 INFO  project.lab3.CarsDBRepository 20 <init> - Initializing CarsDBRepository with properties: {jdbc.url=jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db}
+11 Mar 2025 10:52:49,147 TRACE project.lab3.CarsDBRepository 81 add - Enter saving task{}
+11 Mar 2025 10:52:49,147 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:52:49,148 TRACE project.lab3.JdbcUtils 25 getNewConnection - Enter
+11 Mar 2025 10:52:49,148 INFO  project.lab3.JdbcUtils 30 getNewConnection - trying to connect to database ... jdbc:sqlite:/Users/horatiubanciu/code/Facultate/semestru 4/mpp/lab03_mpp.db
+11 Mar 2025 10:52:49,148 INFO  project.lab3.JdbcUtils 31 getNewConnection - user: null
+11 Mar 2025 10:52:49,148 INFO  project.lab3.JdbcUtils 32 getNewConnection - pass: null
+11 Mar 2025 10:52:49,363 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:52:49,367 TRACE project.lab3.CarsDBRepository 92 add - Exit
+11 Mar 2025 10:52:49,367 TRACE project.lab3.CarsDBRepository 115 findAll - Enter
+11 Mar 2025 10:52:49,367 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:52:49,367 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:52:49,371 TRACE project.lab3.CarsDBRepository 134 findAll - Exit with([Id=1 Dacia Sandero 2021, Id=2 Dacia Logan 2019, Id=3 Mercedes-Benz E220 2019, Id=4 Volskwagen golf 4 2002, Id=5 Audi A4 2015, Id=6 Audi A4 2015, Id=7 Audi A4 2015, Id=8 Audi A4 2015])
+11 Mar 2025 10:52:49,371 TRACE project.lab3.CarsDBRepository 26 findByManufacturer - Enter
+11 Mar 2025 10:52:49,372 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:52:49,372 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:52:49,372 TRACE project.lab3.CarsDBRepository 46 findByManufacturer - Exit with([Id=1 Dacia Sandero 2021, Id=2 Dacia Logan 2019])
+11 Mar 2025 10:52:49,372 TRACE project.lab3.CarsDBRepository 53 findBetweenYears - Enter
+11 Mar 2025 10:52:49,372 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:52:49,372 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:52:49,373 TRACE project.lab3.CarsDBRepository 74 findBetweenYears - Exit with([Id=2 Dacia Logan 2019, Id=3 Mercedes-Benz E220 2019, Id=5 Audi A4 2015, Id=6 Audi A4 2015, Id=7 Audi A4 2015, Id=8 Audi A4 2015])
+11 Mar 2025 10:52:49,373 TRACE project.lab3.CarsDBRepository 115 findAll - Enter
+11 Mar 2025 10:52:49,373 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:52:49,373 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:52:49,373 TRACE project.lab3.CarsDBRepository 134 findAll - Exit with([Id=1 Dacia Sandero 2021, Id=2 Dacia Logan 2019, Id=3 Mercedes-Benz E220 2019, Id=4 Volskwagen golf 4 2002, Id=5 Audi A4 2015, Id=6 Audi A4 2015, Id=7 Audi A4 2015, Id=8 Audi A4 2015])
+11 Mar 2025 10:52:49,373 TRACE project.lab3.CarsDBRepository 97 update - Enter
+11 Mar 2025 10:52:49,373 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:52:49,374 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:52:49,374 TRACE project.lab3.CarsDBRepository 109 update - Exit
+11 Mar 2025 10:52:49,374 TRACE project.lab3.CarsDBRepository 115 findAll - Enter
+11 Mar 2025 10:52:49,374 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:52:49,374 TRACE project.lab3.JdbcUtils 57 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@e4487af)
+11 Mar 2025 10:52:49,375 TRACE project.lab3.CarsDBRepository 134 findAll - Exit with([Id=1 Dacia Sandero 2021, Id=2 Dacia Logan 2019, Id=3 Mercedes-Benz E220 2019, Id=4 Volskwagen golf 7 2021, Id=5 Audi A4 2015, Id=6 Audi A4 2015, Id=7 Audi A4 2015, Id=8 Audi A4 2015])

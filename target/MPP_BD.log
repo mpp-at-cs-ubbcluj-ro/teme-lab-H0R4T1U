@@ -1,0 +1,9 @@
+11 Mar 2025 10:36:37,804 INFO  project.lab3.CarsDBRepository 20 <init> - Initializing CarsDBRepository with properties: {}
+11 Mar 2025 10:36:37,807 TRACE project.lab3.CarsDBRepository 79 add - Enter saving task{}
+11 Mar 2025 10:36:37,807 TRACE project.lab3.JdbcUtils 48 getConnection - Enter
+11 Mar 2025 10:36:37,807 TRACE project.lab3.JdbcUtils 25 getNewConnection - Enter
+11 Mar 2025 10:36:37,807 INFO  project.lab3.JdbcUtils 30 getNewConnection - trying to connect to database ... null
+11 Mar 2025 10:36:37,807 INFO  project.lab3.JdbcUtils 31 getNewConnection - user: null
+11 Mar 2025 10:36:37,807 INFO  project.lab3.JdbcUtils 32 getNewConnection - pass: null
+11 Mar 2025 10:36:37,808 ERROR project.lab3.JdbcUtils 41 getNewConnection - java.sql.SQLException: The url cannot be null
+11 Mar 2025 10:36:37,808 TRACE project.lab3.JdbcUtils 57 getConnection - Exit

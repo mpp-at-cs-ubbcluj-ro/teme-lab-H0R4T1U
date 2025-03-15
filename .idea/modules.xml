@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Lab2.iml" filepath="$PROJECT_DIR$/Lab2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Lab2.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Lab2.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Lab2.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Lab2.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ProiectSemestru.iml" filepath="$PROJECT_DIR$/.idea/modules/ProiectSemestru.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ProiectSemestru.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ProiectSemestru.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ProiectSemestru.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ProiectSemestru.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab03.iml" filepath="$PROJECT_DIR$/lab03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lab03.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lab03.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lab03.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lab03.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module/module.iml" filepath="$PROJECT_DIR$/module/module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mpp.iml" filepath="$PROJECT_DIR$/.idea/mpp.iml" />
+    </modules>
+  </component>
+</project>

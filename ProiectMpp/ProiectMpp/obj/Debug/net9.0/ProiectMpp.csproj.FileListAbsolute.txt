@@ -1,0 +1,142 @@
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp.deps.json
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp.runtimeconfig.json
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp.pdb
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.AssemblyInfoInputs.cache
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.AssemblyInfo.cs
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.csproj.CoreCompileInputs.cache
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/refint/ProiectMpp.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.pdb
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.genruntimeconfig.cache
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ref/ProiectMpp.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/log4net.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Data.SQLite.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Configuration.ConfigurationManager.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Security.Cryptography.ProtectedData.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Security.Permissions.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/linux-x64/native/SQLite.Interop.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/osx-x64/native/SQLite.Interop.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win-x64/native/SQLite.Interop.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win-x86/native/SQLite.Interop.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.csproj.AssemblyReference.cache
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.csproj.Up2Date
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp.dll.config
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/EntityFramework.SqlServer.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/EntityFramework.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/Microsoft.Win32.SystemEvents.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/Microsoft.Data.Sqlite.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/SQLitePCLRaw.batteries_green.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/SQLitePCLRaw.batteries_v2.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/SQLitePCLRaw.core.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/SQLitePCLRaw.provider.e_sqlite3.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.CodeDom.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Data.SqlClient.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Data.SQLite.EF6.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Data.SQLite.Linq.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Drawing.Common.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Windows.Extensions.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win-arm64/native/sni.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win-x64/native/sni.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win-x86/native/sni.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/alpine-x64/native/libe_sqlite3.so
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/linux-arm/native/libe_sqlite3.so
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/linux-arm64/native/libe_sqlite3.so
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/linux-armel/native/libe_sqlite3.so
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/linux-musl-x64/native/libe_sqlite3.so
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/linux-x64/native/libe_sqlite3.so
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/linux-x86/native/libe_sqlite3.so
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/osx-x64/native/libe_sqlite3.dylib
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win-x64/native/e_sqlite3.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win-x86/native/e_sqlite3.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win8-arm/native/e_sqlite3.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/browser-wasm/nativeassets/net9.0/e_sqlite3.a
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/linux-mips64/native/libe_sqlite3.so
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/linux-musl-arm/native/libe_sqlite3.so
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/linux-musl-arm64/native/libe_sqlite3.so
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/linux-musl-riscv64/native/libe_sqlite3.so
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/linux-musl-s390x/native/libe_sqlite3.so
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/linux-ppc64le/native/libe_sqlite3.so
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/linux-riscv64/native/libe_sqlite3.so
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/linux-s390x/native/libe_sqlite3.so
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/maccatalyst-arm64/native/libe_sqlite3.dylib
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/maccatalyst-x64/native/libe_sqlite3.dylib
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/osx-arm64/native/libe_sqlite3.dylib
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win-arm/native/e_sqlite3.dll
+/Users/horatiubanciu/code/Facultate/semestru 4/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win-arm64/native/e_sqlite3.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp.exe
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp.dll.config
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp.deps.json
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp.runtimeconfig.json
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp.pdb
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/EntityFramework.SqlServer.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/EntityFramework.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/log4net.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/Microsoft.Win32.SystemEvents.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Data.SQLite.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.CodeDom.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Configuration.ConfigurationManager.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Data.SqlClient.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Data.SQLite.EF6.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Drawing.Common.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Security.Cryptography.ProtectedData.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Security.Permissions.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Windows.Extensions.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win-arm64/native/sni.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win-x64/native/sni.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win-x86/native/sni.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/linux-x64/native/SQLite.Interop.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/osx-x64/native/SQLite.Interop.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win-x64/native/SQLite.Interop.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win-x86/native/SQLite.Interop.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+Z:/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+Z:/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.csproj.AssemblyReference.cache
+Z:/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.GeneratedMSBuildEditorConfig.editorconfig
+Z:/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.AssemblyInfoInputs.cache
+Z:/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.AssemblyInfo.cs
+Z:/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.csproj.CoreCompileInputs.cache
+Z:/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.csproj.Up2Date
+Z:/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.dll
+Z:/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/refint/ProiectMpp.dll
+Z:/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.pdb
+Z:/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.genruntimeconfig.cache
+Z:/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ref/ProiectMpp.dll
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp.dll.config
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp.deps.json
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp.runtimeconfig.json
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp.dll
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/ProiectMpp.pdb
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/log4net.dll
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Configuration.ConfigurationManager.dll
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Security.Cryptography.ProtectedData.dll
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/System.Security.Permissions.dll
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.csproj.AssemblyReference.cache
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.AssemblyInfoInputs.cache
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.AssemblyInfo.cs
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.csproj.CoreCompileInputs.cache
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.csproj.Up2Date
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.dll
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/refint/ProiectMpp.dll
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.pdb
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ProiectMpp.genruntimeconfig.cache
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/obj/Debug/net9.0/ref/ProiectMpp.dll
+/Users/horatiubanciu/code/mpp/ProiectMpp/ProiectMpp/bin/Debug/net9.0/Mono.Data.Sqlite.dll
