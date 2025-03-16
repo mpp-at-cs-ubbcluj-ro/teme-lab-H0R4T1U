@@ -25,15 +25,65 @@ internal class Program
         }
         
         string settings = ConfigurationManager.ConnectionStrings["MotoDB"].ConnectionString;
-        PlayerDBRepository playerRepository = new PlayerDBRepository(settings);
-        TeamDBRepository teamRepository = new TeamDBRepository(settings);
-        RaceDBRepository raceRepository = new RaceDBRepository(settings);
-        Player? player = playerRepository.FindOne(1);
-        Team? team = teamRepository.FindOne(1);
-        Race? race = raceRepository.FindOne(1);
-        Console.WriteLine(player);
+        PlayerDBRepository playerDbRepository = new PlayerDBRepository(settings);
+        Console.WriteLine("All players in the database:");
+        foreach (var kvp in playerDbRepository.FindAll())
+        {
+            Console.WriteLine($"{kvp.Key} => {kvp.Value}");
+        }
 
+        TeamDBRepository teamDbRepository = new TeamDBRepository(settings);
+        Console.WriteLine("All teams in the database:");
+        foreach (var kvp in teamDbRepository.FindAll())
+        {
+            Console.WriteLine($"{kvp.Key} => {kvp.Value}");
+        }
 
+        RaceDBRepository raceDbRepository = new RaceDBRepository(settings, playerDbRepository);
+        Console.WriteLine("All races in the database:");
+        foreach (var kvp in raceDbRepository.FindAll())
+        {
+            Console.WriteLine($"{kvp.Key} => {kvp.Value}");
+        }
+
+        Team team = new Team("McLaren");
+        var teamOptional = teamDbRepository.Save(team);
+        if (teamOptional != null)
+        {
+            Console.WriteLine(teamOptional);
+        }
+        else
+        {
+            Console.WriteLine("The team already exists in the database");
+        }
+
+        Player player = new Player("Norris", "1110001110001", 3);
+        var playerOptional = playerDbRepository.Save(player);
+        if (playerOptional != null)
+        {
+            Console.WriteLine(playerOptional);
+        }
+        else
+        {
+            Console.WriteLine("The player already exists in the database");
+        }
+
+        Race r = raceDbRepository.FindOne(1);
+        if (r != null)
+        {
+            List<Player> players = r.Players;
+            players.Add(player);
+            r.Players = players;
+            r.NoPlayers = players.Count;
+            raceDbRepository.Update(r);
+        }
+
+        Console.WriteLine("All races in the database after update:");
+        foreach (var kvp in raceDbRepository.FindAll())
+        {
+            Console.WriteLine($"{kvp.Key} => {kvp.Value}");
+        }
+        
     }
 }
 

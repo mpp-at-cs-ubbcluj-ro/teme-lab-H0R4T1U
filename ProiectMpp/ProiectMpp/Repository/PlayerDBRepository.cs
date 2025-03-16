@@ -1,28 +1,32 @@
-using log4net;
 using log4net.Util;
 using ProiectMpp.Domain;
 using Mono.Data.Sqlite;
 namespace ProiectMpp.Repository;
 
-public class PlayerDBRepository : IRepository<int, Player>
+public class PlayerDBRepository : AbstractDatabaseRepository<int, Player>
 {
-    private static readonly ILog Log = LogManager.GetLogger(typeof(PlayerDBRepository));
-    private readonly string _connectionString;
 
-    public PlayerDBRepository(string connectionString)
+
+    public PlayerDBRepository(string connectionString) : base(connectionString)
     {
-        _connectionString = connectionString;
+        Load();
+        Log.Info("Initializing PlayerDBRepository");
     }
 
-    public Player? FindOne(int id)
+    public override Player? FindOne(int id)
     {
         Log.Info($"Finding player {id}");
-        SqliteConnection connection = new SqliteConnection(_connectionString);
+        if (Data.ContainsKey(id))
+        {
+            Log.Info("Player MEM_HIT");
+            return Data[id];
+        }
+        SqliteConnection connection = new SqliteConnection(ConnectionString);
         try
         {
             connection.Open();
             using var cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT * FROM Player WHERE id = @id";
+            cmd.CommandText = "SELECT * FROM Player WHERE Id = @id";
             cmd.Parameters.AddWithValue("@id", id);
             using SqliteDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
@@ -30,6 +34,7 @@ public class PlayerDBRepository : IRepository<int, Player>
                 Player p = new Player(reader.GetString(0), reader.GetString(2), reader.GetInt32(3));
                 p.Id = reader.GetInt32(1);
                 Log.InfoExt("Player found: " + p);
+                Data.Add(p.Id, p);
                 return p;
             }
             return null;
@@ -37,7 +42,7 @@ public class PlayerDBRepository : IRepository<int, Player>
         catch (Exception e)
         {
             Log.Error(e);
-            return null;
+            throw new Exception(e.Message);
         }
         finally
         {
@@ -46,11 +51,15 @@ public class PlayerDBRepository : IRepository<int, Player>
         }
     }
 
-    public IDictionary<int,Player> FindAll()
+    public new IDictionary<int,Player> FindAll()
     {
         Log.Info($"Finding all players");
-        Dictionary<int, Player> players = new Dictionary<int, Player>();
-        SqliteConnection connection = new SqliteConnection(_connectionString);
+        return base.FindAll();
+    }
+
+    protected override void Load()
+    {
+        SqliteConnection connection = new SqliteConnection(ConnectionString);
         try
         {
             connection.Open();
@@ -61,44 +70,47 @@ public class PlayerDBRepository : IRepository<int, Player>
             {
                 Player p = new Player(reader.GetString(0), reader.GetString(2), reader.GetInt32(3));
                 p.Id = reader.GetInt32(1);
-                players.Add(p.Id, p);
+                Data.Add(p.Id, p);
             }
-            return players;
         }
         catch (Exception e)
         {
             Log.Error(e);
-            return players;
+            throw new Exception(e.Message);
         }
         finally
         {
-            Log.InfoExt("Found " + players.Count.ToString() + " players");
+            Log.InfoExt("Found " + Data.Count + " players");
             connection.Close();
         }
-        
-    }
 
-    public Player? Save(Player entity)
+    }
+    public override Player Save(Player entity)
     {
         Log.Info("Saving player " + entity);
-        SqliteConnection connection = new SqliteConnection(_connectionString);
+        SqliteConnection connection = new SqliteConnection(ConnectionString);
         try
         {
             connection.Open();
             using var cmd = connection.CreateCommand();
-            cmd.CommandText = "INSERT INTO Player (Name,Id, Code,Team) VALUES (@name, @id,@code, @team)";
+            cmd.CommandText = "INSERT INTO Player (Name, Code,Team) VALUES (@name,@code, @team)";
             cmd.Parameters.AddWithValue("@name", entity.Name);
-            cmd.Parameters.AddWithValue("@id", entity.Id);
             cmd.Parameters.AddWithValue("@code", entity.Code);
             cmd.Parameters.AddWithValue("@team", entity.Team);
             cmd.ExecuteNonQuery();
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT last_insert_rowid();";
+                entity.Id = Convert.ToInt32(command.ExecuteScalar());
+            }
             Log.InfoExt("Player saved: " + entity);
-            return null;
+            Data.Add(entity.Id, entity);
+            return entity;
         }
         catch (Exception e)
         {
             Log.Error(e);
-            return entity;
+            throw new Exception(e.Message);
         }
         finally
         {
@@ -106,10 +118,10 @@ public class PlayerDBRepository : IRepository<int, Player>
         }
     }
 
-    public Player? Delete(int id)
+    public override Player Delete(int id)
     {
         Log.Info($"Deleting player {id}");
-        SqliteConnection connection = new SqliteConnection(_connectionString);
+        SqliteConnection connection = new SqliteConnection(ConnectionString);
         try
         {
             connection.Open();
@@ -117,15 +129,15 @@ public class PlayerDBRepository : IRepository<int, Player>
             cmd.CommandText = "DELETE FROM Player WHERE id = @id";
             cmd.Parameters.AddWithValue("@id", id);
             cmd.ExecuteNonQuery();
+            Player p = Data[id];
+            Data.Remove(id);
             Log.InfoExt("Player deleted: " + id.ToString());
-            return null;
+            return p;
         }
         catch (Exception e)
         {
             Log.Error(e);
-            Player t = new Player("","",0);
-            t.Id= id;
-            return t;
+            throw new Exception(e.Message);
         }
         finally
         {
@@ -133,10 +145,10 @@ public class PlayerDBRepository : IRepository<int, Player>
         }
     }
 
-    public Player? Update(Player entity)
+    public override Player Update(Player entity)
     {
         Log.Info("Updating player " + entity);
-        SqliteConnection connection = new SqliteConnection(_connectionString);
+        SqliteConnection connection = new SqliteConnection(ConnectionString);
         try
         {
             connection.Open();
@@ -148,12 +160,14 @@ public class PlayerDBRepository : IRepository<int, Player>
             cmd.Parameters.AddWithValue("@team", entity.Team);
             cmd.ExecuteNonQuery();
             Log.InfoExt("Player updated: " + entity);
-            return null;
+            Player p = Data[entity.Id];
+            Data[entity.Id] = entity;
+            return p;
         }
         catch (Exception e)
         {
             Log.Error(e);
-            return entity;
+            throw new Exception(e.Message);
         }
         finally
         {

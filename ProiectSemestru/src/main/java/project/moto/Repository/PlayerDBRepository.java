@@ -13,6 +13,7 @@ public class PlayerDBRepository extends AbstractDatabaseRepository<Integer,Playe
 
     public PlayerDBRepository(Properties props) {
         super(props);
+        Load();
         logger.info("Initialized PlayerDBIRepository with properties: {}", props);
     }
 

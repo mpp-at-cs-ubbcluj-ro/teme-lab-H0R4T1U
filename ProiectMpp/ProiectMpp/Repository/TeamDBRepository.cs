@@ -1,23 +1,27 @@
-using log4net;
 using ProiectMpp.Domain;
 using log4net.Util;
 using Mono.Data.Sqlite;
 
 namespace ProiectMpp.Repository;
 
-public class TeamDBRepository: IRepository<int,Team>
+public class TeamDBRepository: AbstractDatabaseRepository<int,Team>
 {
-    private static readonly ILog Log = LogManager.GetLogger(typeof(PlayerDBRepository));
-    private readonly string _connectionString;
-
-    public TeamDBRepository(string connectionString)
+    public TeamDBRepository(string connectionString) : base(connectionString)
     {
-        _connectionString = connectionString;
+        Load();
+        Log.Info("Initializing TeamDBRepository");
     }
-    public Team? FindOne(int id)
+     
+    public override Team? FindOne(int id)
     {
         Log.Info($"Finding team with id {id}");
-        SqliteConnection connection = new SqliteConnection(_connectionString);
+        if (Data.ContainsKey(id))
+        {
+            Log.Info("Team MEM_HIT");
+            return Data[id];
+        }
+        
+        SqliteConnection connection = new SqliteConnection(ConnectionString);
         try
         {
             connection.Open();
@@ -30,6 +34,7 @@ public class TeamDBRepository: IRepository<int,Team>
                 Team t = new Team(reader.GetString(0));
                 t.Id = reader.GetInt32(1);
                 Log.InfoExt("Team found: " + t);
+                Data.Add(t.Id, t);
                 return t;
             }
             return null;
@@ -37,7 +42,7 @@ public class TeamDBRepository: IRepository<int,Team>
         catch (Exception e)
         {
                 Log.Error(e);
-                return null;
+                throw new Exception(e.Message);
         }
         finally
         {
@@ -45,58 +50,69 @@ public class TeamDBRepository: IRepository<int,Team>
         }
         
     }
+     
+    public new IDictionary<int,Team> FindAll()
+    {
+        Log.Info("Retrieving all teams");
+        return base.FindAll();
+        
+    }
 
-    public IDictionary<int,Team> FindAll()
+    protected override void Load()
     {
         Log.Info($"Finding teams");
-        Dictionary<int,Team> teams = new Dictionary<int, Team>();
-        SqliteConnection connection = new SqliteConnection(_connectionString);
+
+        SqliteConnection connection = new SqliteConnection(ConnectionString);
         try
         {
             connection.Open();
             using var cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT * FROM Teams";
+            cmd.CommandText = "SELECT * FROM Team";
             using SqliteDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
                 Team t = new Team(reader.GetString(0));
                 t.Id = reader.GetInt32(1);
-                teams.Add(t.Id, t);
+                Data.Add(t.Id, t);
             }
-            Log.InfoExt("Teams found: " + teams.Count.ToString());
-            return teams;
+            Log.InfoExt("Teams found: " + Data.Count.ToString());
+
         }
         catch (Exception e)
         {
             Log.Error(e);
-            return teams;
+            throw new Exception(e.Message);
         }
         finally
         {
             connection.Close();
         }
-        
     }
-
-    public Team? Save(Team entity)
+    
+    public override Team Save(Team entity)
     {
         Log.Info($"Saving team with id {entity.Id}");
-        SqliteConnection connection = new SqliteConnection(_connectionString);
+        SqliteConnection connection = new SqliteConnection(ConnectionString);
         try
         {
             connection.Open();
             using var cmd = connection.CreateCommand();
-            cmd.CommandText = "INSERT INTO Team (Name,Id) VALUES (@name,@id)";
+            cmd.CommandText = "INSERT INTO Team (Name) VALUES (@name)";
             cmd.Parameters.AddWithValue("@name", entity.Name);
-            cmd.Parameters.AddWithValue("@id", entity.Id);
             cmd.ExecuteNonQuery();
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT last_insert_rowid();";
+                entity.Id = Convert.ToInt32(command.ExecuteScalar());
+            }
             Log.InfoExt("Team saved: " + entity);
-            return null;
+            Data.Add(entity.Id, entity);
+            return entity;
         }
         catch (Exception e)
         {
             Log.Error(e);
-            return entity;
+            throw new Exception(e.Message);
         }
         finally
         {
@@ -104,10 +120,10 @@ public class TeamDBRepository: IRepository<int,Team>
         }
     }
 
-    public Team? Delete(int id)
+    public override Team Delete(int id)
     {
         Log.Info($"Deleting team with id {id}");
-        SqliteConnection connection = new SqliteConnection(_connectionString);
+        SqliteConnection connection = new SqliteConnection(ConnectionString);
         try
         {
             connection.Open();
@@ -116,14 +132,14 @@ public class TeamDBRepository: IRepository<int,Team>
             cmd.Parameters.AddWithValue("@id", id);
             cmd.ExecuteNonQuery();
             Log.InfoExt("Team deleted: " + id.ToString());
-            return null;
+            Team t = Data[id];
+            Data.Remove(id);
+            return t;
         }
         catch (Exception e)
         {
             Log.Error(e);
-            Team t = new Team("");
-            t.Id = id;
-            return t ;
+            throw new Exception(e.Message);
         }
         finally
         {
@@ -131,10 +147,10 @@ public class TeamDBRepository: IRepository<int,Team>
         }
     }
 
-    public Team? Update(Team entity)
+    public override Team Update(Team entity)
     {
         Log.Info($"Updating team with id {entity.Id}");
-        SqliteConnection connection = new SqliteConnection(_connectionString);
+        SqliteConnection connection = new SqliteConnection(ConnectionString);
         try
         {
             connection.Open();
@@ -144,12 +160,14 @@ public class TeamDBRepository: IRepository<int,Team>
             cmd.Parameters.AddWithValue("@id", entity.Id);
             cmd.ExecuteNonQuery();
             Log.InfoExt("Team updated: " + entity);
-            return null;
+            Team t = Data[entity.Id];
+            Data[entity.Id] = entity;
+            return t;
         }
         catch (Exception e)
         {
             Log.Error(e);
-            return entity;
+            throw new Exception(e.Message);
         }
         finally
         {

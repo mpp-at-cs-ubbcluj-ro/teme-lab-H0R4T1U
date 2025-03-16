@@ -10,7 +10,9 @@ public class TeamDBRepository extends AbstractDatabaseRepository<Integer, Team> 
 
     public TeamDBRepository(Properties props) {
         super(props);
+        Load();
         logger.info("Initialized TeamDBRepository with properties: {}", props);
+
     }
 
     /**

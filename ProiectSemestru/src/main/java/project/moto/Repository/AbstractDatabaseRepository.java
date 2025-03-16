@@ -15,7 +15,7 @@ abstract public class AbstractDatabaseRepository<ID, E extends Entity<ID>> imple
     public AbstractDatabaseRepository(Properties props) {
         this.dbUtils = new JdbcUtils(props);
         this.data = new HashMap<>();
-        Load();
+
     }
     public Map<ID,E> findAll(){
         return data;

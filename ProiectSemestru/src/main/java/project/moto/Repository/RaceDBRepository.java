@@ -16,7 +16,9 @@ public class RaceDBRepository extends AbstractDatabaseRepository<Integer,Race> {
     public RaceDBRepository(Properties props, PlayerDBRepository playerRepo) {
         super(props);
         this.playerRepo = playerRepo;
+        Load();
         logger.info("Initialized RaceDBRepository with properties: {}", props);
+
     }
 
     /**
@@ -118,7 +120,7 @@ public class RaceDBRepository extends AbstractDatabaseRepository<Integer,Race> {
             }
         } catch (SQLException e) {
             logger.error(e.getMessage());
-            System.err.println("Error DB " + e);
+            throw new RuntimeException(e);
         }
     }
 
