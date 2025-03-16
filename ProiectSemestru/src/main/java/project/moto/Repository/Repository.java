@@ -5,6 +5,7 @@ package project.moto.Repository;
 
 import project.moto.Domain.Entity;
 
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -26,7 +27,7 @@ public interface Repository<ID, E extends Entity<ID>> {
      *
      * @return all entities
      */
-    Iterable<E> findAll();
+    Map<ID,E> findAll();
     /**
      *
      * @param entity
