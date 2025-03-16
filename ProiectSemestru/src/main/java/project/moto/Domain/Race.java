@@ -7,12 +7,12 @@ import java.util.Objects;
 public class Race extends Entity<Integer> {
     private Integer engineType;
     private Integer noPlayers;
-    private List<Long> playerIds;
+    private List<Player> players;
 
     public Race(Integer engineType) {
         this.engineType = engineType;
         this.noPlayers = 0;
-        this.playerIds = new ArrayList<>();
+        this.players = new ArrayList<>();
     }
 
     public Integer getEngineType() {
@@ -23,16 +23,20 @@ public class Race extends Entity<Integer> {
         return noPlayers;
     }
 
-    public List<Long> getPlayerIds() {
-        return playerIds;
+    public List<Player> getPlayers() {
+        return players;
     }
 
     public void setNoPlayers(Integer noPlayers) {
         this.noPlayers = noPlayers;
     }
 
-    public void setPlayerIds(List<Long> playerIds) {
-        this.playerIds = playerIds;
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
+    public void setEngineType(Integer engineType) {
+        this.engineType = engineType;
     }
 
     @Override
@@ -40,7 +44,7 @@ public class Race extends Entity<Integer> {
         return "Race{" +
                 "engineType=" + engineType +
                 ", noPlayers=" + noPlayers +
-                ", playerIds=" + playerIds +
+                ", playerIds=" + players +
                 ", id=" + id +
                 '}';
     }
@@ -50,11 +54,11 @@ public class Race extends Entity<Integer> {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Race race = (Race) o;
-        return Objects.equals(engineType, race.engineType) && Objects.equals(noPlayers, race.noPlayers) && Objects.equals(playerIds, race.playerIds);
+        return Objects.equals(engineType, race.engineType) && Objects.equals(noPlayers, race.noPlayers) && Objects.equals(players, race.players);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), engineType, noPlayers, playerIds);
+        return Objects.hash(super.hashCode(), engineType, noPlayers, players);
     }
 }

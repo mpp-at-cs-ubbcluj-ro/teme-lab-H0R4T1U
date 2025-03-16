@@ -38,7 +38,7 @@ public class JdbcUtils {
             else
                 con=DriverManager.getConnection(url);
         } catch (SQLException e) {
-            logger.error(e);
+            logger.error(e.getMessage());
             System.out.println("Error getting connection "+e);
         }
         return con;
@@ -51,7 +51,7 @@ public class JdbcUtils {
                 instance=getNewConnection();
 
         } catch (SQLException e) {
-            logger.error(e);
+            logger.error(e.getMessage());
             System.out.println("Error DB "+e);
         }
         logger.traceExit(instance);

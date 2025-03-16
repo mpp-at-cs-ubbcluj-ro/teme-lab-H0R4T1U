@@ -40,7 +40,7 @@ public class CarsDBRepository implements CarRepository{
                 }
             }
         } catch (SQLException e) {
-            logger.error(e);
+            logger.error(e.getMessage());
             throw new RuntimeException(e);
         }
         logger.traceExit(cars);
@@ -68,7 +68,7 @@ public class CarsDBRepository implements CarRepository{
                 }
             }
         } catch (SQLException e) {
-            logger.error(e);
+            logger.error(e.getMessage());
             throw new RuntimeException(e);
         }
         logger.traceExit(cars);
@@ -86,7 +86,7 @@ public class CarsDBRepository implements CarRepository{
             preStmt.setInt(3,elem.getYear());
             int result=preStmt.executeUpdate();
         } catch (SQLException e) {
-            logger.error(e);
+            logger.error(e.getMessage());
             throw new RuntimeException(e);
         }
         logger.traceExit();
@@ -103,7 +103,7 @@ public class CarsDBRepository implements CarRepository{
             preStmt.setInt(4, integer);
             int result = preStmt.executeUpdate();
         } catch (SQLException e) {
-            logger.error(e);
+            logger.error(e.getMessage());
             throw new RuntimeException(e);
         }
         logger.traceExit();
@@ -128,7 +128,7 @@ public class CarsDBRepository implements CarRepository{
                  }
              }
          } catch (SQLException e) {
-             logger.error(e);
+             logger.error(e.getMessage());
              throw new RuntimeException(e);
          }
         logger.traceExit(cars);
