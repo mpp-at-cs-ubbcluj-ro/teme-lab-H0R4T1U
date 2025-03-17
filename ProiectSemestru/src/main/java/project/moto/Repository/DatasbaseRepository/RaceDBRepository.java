@@ -1,8 +1,12 @@
-package project.moto.Repository;
+package project.moto.Repository.DatasbaseRepository;
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import project.moto.Domain.Race;
 import project.moto.Domain.Player;
+import project.moto.Repository.RaceRepository;
+import project.moto.Utils.JdbcUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,41 +14,37 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
-public class RaceDBRepository extends AbstractDatabaseRepository<Integer,Race> {
+public class RaceDBRepository implements RaceRepository {
+
     private final PlayerDBRepository playerRepo;
+    private final JdbcUtils dbUtils;
+    private static final Logger logger = LogManager.getLogger();
 
     public RaceDBRepository(Properties props, PlayerDBRepository playerRepo) {
-        super(props);
+        dbUtils = new JdbcUtils(props);
         this.playerRepo = playerRepo;
-        Load();
-        logger.info("Initialized RaceDBRepository with properties: {}", props);
-
+        logger.info("Initialized PlayerDBIRepository with properties: {}", props);
     }
 
     /**
-     * Find the race with the given id, if it exists in memory in returns instantly, else queries the database
-     * @param raceId -the id of the entity to be returned
+     * Find the race with the given id
+     * @param rID -the id of the entity to be returned
      * id must not be null
      * @return Race - null if it doesnt exist
      */
     @Override
-    public Optional<Race> findOne(Integer raceId) {
-        logger.traceEntry("findOne race with id {}", raceId);
-        if(data.containsKey(raceId))
-        {
-            logger.traceExit("Race MEMORY_HIT");
-            return Optional.of(data.get(raceId));
-        }
+    public Optional<Race> findOne(Integer rID) {
+        logger.traceEntry("findOne race with id {}", rID);
         Connection con = dbUtils.getConnection();
         Race race =  new Race(0);
         try (PreparedStatement preStmt = con.prepareStatement("SELECT * FROM Race WHERE Id = ?")) {
-            preStmt.setInt(1, raceId);
+            preStmt.setInt(1, rID);
             try (ResultSet result = preStmt.executeQuery()) {
                 if (result.next()) {
                     Integer engineType = result.getInt("EngineType");
                     Integer noPlayers = result.getInt("NoPlayers");
                     race.setEngineType(engineType);
-                    race.setId(raceId);
+                    race.setId(rID);
                     race.setNoPlayers(noPlayers);
                 }
             }
@@ -55,7 +55,7 @@ public class RaceDBRepository extends AbstractDatabaseRepository<Integer,Race> {
 
         if (race.getId() != null) {
             try (PreparedStatement preStmt = con.prepareStatement("SELECT PlayerId FROM PlayerRaces WHERE RaceId = ?")) {
-                preStmt.setInt(1, raceId);
+                preStmt.setInt(1, rID);
                 try (ResultSet result = preStmt.executeQuery()) {
                     List<Player> players = new ArrayList<>();
                     while (result.next()) {
@@ -63,7 +63,6 @@ public class RaceDBRepository extends AbstractDatabaseRepository<Integer,Race> {
                         playerRepo.findOne(playerId).ifPresent(players::add);
                     }
                     race.setPlayers(players);
-                    data.put(raceId, race);
                     logger.traceExit("Race found in Database!");
                     return Optional.of(race);
                 }
@@ -77,23 +76,14 @@ public class RaceDBRepository extends AbstractDatabaseRepository<Integer,Race> {
     }
 
     /**
-     *  Returns all teams
+     *  Returns all races
      * @return Map<Integer,Team> - all teams
      */
     @Override
     public Map<Integer,Race> findAll() {
         logger.traceEntry("Finding all races");
-        return super.findAll();
-    }
-
-    /**
-     * Returns all data from Database
-     */
-    @Override
-    protected void Load(){
-        logger.traceEntry("findAll races");
         Connection con = dbUtils.getConnection();
-
+        Map<Integer,Race> data = new HashMap<>();
         try (PreparedStatement preStmt = con.prepareStatement("SELECT * FROM Race")) {
             try (ResultSet result = preStmt.executeQuery()) {
                 while (result.next()) {
@@ -122,11 +112,13 @@ public class RaceDBRepository extends AbstractDatabaseRepository<Integer,Race> {
             logger.error(e.getMessage());
             throw new RuntimeException(e);
         }
+        logger.traceExit("found {} races",data.size());
+        return data;
     }
 
+
     /**
-     * Saves race to the database and locally, stops commits until all changes are applied
-     * to ensure data consistency
+     * Saves race to the database stops commits to ensure data consistency
      * @param race
      * entity must be not null
      * @return Optional<Race> - null if the entity was not saved
@@ -161,7 +153,6 @@ public class RaceDBRepository extends AbstractDatabaseRepository<Integer,Race> {
                             preStmtPlayers.executeUpdate();
                         }
                     }
-                    data.put(race.getId(), race);
                     con.commit();
                     logger.traceExit("Race saved with id {}", race.getId());
                     return Optional.of(race);
@@ -187,8 +178,7 @@ public class RaceDBRepository extends AbstractDatabaseRepository<Integer,Race> {
     }
 
     /**
-     * Deletes a race locally and from the database if it exists, stops commits until all changes are applied
-     * to ensure data consistency
+     * Deletes a race from the database if it exists, stops commits until all changes are applied to ensure data consistency
      * @param raceId
      * id must be not null
      * @return Optional<Race> Race - null if it doesn't exist
@@ -215,10 +205,9 @@ public class RaceDBRepository extends AbstractDatabaseRepository<Integer,Race> {
                     preStmt.executeUpdate();
                 }
 
-                Optional<Race> removed = Optional.of(data.remove(raceId));
                 con.commit();
                 logger.traceExit("Race deleted with id {}", raceId);
-                return removed;
+                return race;
             } catch (SQLException e) {
                 try {
                     con.rollback();
@@ -240,8 +229,7 @@ public class RaceDBRepository extends AbstractDatabaseRepository<Integer,Race> {
     }
 
     /**
-     * Updates Race in the database and locally, stops commits until all changes are applied
-     * to ensure data consistency
+     * Updates Race in the database, stops commits until all changes are applied to ensure data consistency
      * @param race - entity must be not null
      * @return Optional<Race> - null if the entity was not updated
      */
@@ -277,7 +265,7 @@ public class RaceDBRepository extends AbstractDatabaseRepository<Integer,Race> {
 
                     con.commit();
                     logger.traceExit("Race updated with id {}", race.getId());
-                    return Optional.ofNullable(data.put(race.getId(), race));
+                    return Optional.of(race);
                 }
             }
             logger.traceExit("Race not Updated");

@@ -1,27 +1,27 @@
+using log4net;
 using ProiectMpp.Domain;
 using log4net.Util;
 using Mono.Data.Sqlite;
 
-namespace ProiectMpp.Repository;
+namespace ProiectMpp.Repository.DatabaseRepository;
 
-public class TeamDBRepository: AbstractDatabaseRepository<int,Team>
+public class TeamDbRepository: ITeamRepository
 {
-    public TeamDBRepository(string connectionString) : base(connectionString)
+    private static readonly ILog Log = LogManager.GetLogger(typeof(TeamDbRepository));
+    private readonly string _connectionString;
+    public TeamDbRepository(string connectionString)
     {
-        Load();
-        Log.Info("Initializing TeamDBRepository");
+        _connectionString = connectionString;
+        Log.Info("Initializing PlayerDBRepository ");
     }
+
      
-    public override Team? FindOne(int id)
+    public Team? FindOne(int id)
     {
         Log.Info($"Finding team with id {id}");
-        if (Data.ContainsKey(id))
-        {
-            Log.Info("Team MEM_HIT");
-            return Data[id];
-        }
+
         
-        SqliteConnection connection = new SqliteConnection(ConnectionString);
+        SqliteConnection connection = new SqliteConnection(_connectionString);
         try
         {
             connection.Open();
@@ -34,7 +34,6 @@ public class TeamDBRepository: AbstractDatabaseRepository<int,Team>
                 Team t = new Team(reader.GetString(0));
                 t.Id = reader.GetInt32(1);
                 Log.InfoExt("Team found: " + t);
-                Data.Add(t.Id, t);
                 return t;
             }
             return null;
@@ -51,18 +50,11 @@ public class TeamDBRepository: AbstractDatabaseRepository<int,Team>
         
     }
      
-    public new IDictionary<int,Team> FindAll()
+    public IDictionary<int,Team> FindAll()
     {
         Log.Info("Retrieving all teams");
-        return base.FindAll();
-        
-    }
-
-    protected override void Load()
-    {
-        Log.Info($"Finding teams");
-
-        SqliteConnection connection = new SqliteConnection(ConnectionString);
+        SqliteConnection connection = new SqliteConnection(_connectionString);
+        Dictionary<int,Team> data = new Dictionary<int,Team>();
         try
         {
             connection.Open();
@@ -73,9 +65,10 @@ public class TeamDBRepository: AbstractDatabaseRepository<int,Team>
             {
                 Team t = new Team(reader.GetString(0));
                 t.Id = reader.GetInt32(1);
-                Data.Add(t.Id, t);
+                data.Add(t.Id, t);
             }
-            Log.InfoExt("Teams found: " + Data.Count.ToString());
+            Log.InfoExt("Teams found: " + data.Count.ToString());
+            return data;
 
         }
         catch (Exception e)
@@ -87,12 +80,14 @@ public class TeamDBRepository: AbstractDatabaseRepository<int,Team>
         {
             connection.Close();
         }
+        
     }
     
-    public override Team Save(Team entity)
+    
+    public Team Save(Team entity)
     {
         Log.Info($"Saving team with id {entity.Id}");
-        SqliteConnection connection = new SqliteConnection(ConnectionString);
+        SqliteConnection connection = new SqliteConnection(_connectionString);
         try
         {
             connection.Open();
@@ -106,7 +101,6 @@ public class TeamDBRepository: AbstractDatabaseRepository<int,Team>
                 entity.Id = Convert.ToInt32(command.ExecuteScalar());
             }
             Log.InfoExt("Team saved: " + entity);
-            Data.Add(entity.Id, entity);
             return entity;
         }
         catch (Exception e)
@@ -120,37 +114,41 @@ public class TeamDBRepository: AbstractDatabaseRepository<int,Team>
         }
     }
 
-    public override Team Delete(int id)
+    public Team? Delete(int id)
     {
         Log.Info($"Deleting team with id {id}");
-        SqliteConnection connection = new SqliteConnection(ConnectionString);
-        try
+        SqliteConnection connection = new SqliteConnection(_connectionString);
+        Team? team = FindOne(id);
+        if (team != null)
         {
-            connection.Open();
-            using var cmd = connection.CreateCommand();
-            cmd.CommandText = "DELETE FROM Team WHERE id = @id";
-            cmd.Parameters.AddWithValue("@id", id);
-            cmd.ExecuteNonQuery();
-            Log.InfoExt("Team deleted: " + id.ToString());
-            Team t = Data[id];
-            Data.Remove(id);
-            return t;
+            try
+            {
+                connection.Open();
+                using var cmd = connection.CreateCommand();
+                cmd.CommandText = "DELETE FROM Team WHERE id = @id";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                Log.InfoExt("Team deleted: " + id.ToString());
+                return team;
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
-        catch (Exception e)
-        {
-            Log.Error(e);
-            throw new Exception(e.Message);
-        }
-        finally
-        {
-            connection.Close();
-        }
+
+        return null;
     }
 
-    public override Team Update(Team entity)
+    public Team Update(Team entity)
     {
         Log.Info($"Updating team with id {entity.Id}");
-        SqliteConnection connection = new SqliteConnection(ConnectionString);
+        SqliteConnection connection = new SqliteConnection(_connectionString);
         try
         {
             connection.Open();
@@ -160,9 +158,7 @@ public class TeamDBRepository: AbstractDatabaseRepository<int,Team>
             cmd.Parameters.AddWithValue("@id", entity.Id);
             cmd.ExecuteNonQuery();
             Log.InfoExt("Team updated: " + entity);
-            Team t = Data[entity.Id];
-            Data[entity.Id] = entity;
-            return t;
+            return entity;
         }
         catch (Exception e)
         {

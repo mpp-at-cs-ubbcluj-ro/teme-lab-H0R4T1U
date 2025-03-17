@@ -1,29 +1,28 @@
+using log4net;
 using ProiectMpp.Domain;
 
 using Mono.Data.Sqlite;
 
-namespace ProiectMpp.Repository
+namespace ProiectMpp.Repository.DatabaseRepository
 {
-    public class RaceDBRepository : AbstractDatabaseRepository<int, Race>
+    public class RaceDbRepository : IRaceRepository
     {
-        private readonly PlayerDBRepository _playerRepo;
+        private readonly PlayerDbRepository _playerRepo;
+        private static readonly ILog Log = LogManager.GetLogger(typeof(RaceDbRepository));
+        private readonly string _connectionString;
 
-        public RaceDBRepository(string connectionString,PlayerDBRepository repo) : base(connectionString)
+        public RaceDbRepository(string connectionString, PlayerDbRepository playerRepo)
         {
-            _playerRepo = repo;
-            Load();
-            Log.Info($"Initialized RaceDBRepository with connection string: {ConnectionString}");
+            _playerRepo = playerRepo;
+            _connectionString = connectionString;
+            Log.Info("Initializing PlayerDBRepository");
         }
 
-        public override Race? FindOne(int id)
+        public Race? FindOne(int id)
         {
             Log.Info($"Finding race with id {id}");
-            if (Data.ContainsKey(id))
-            {
-                Log.Info("Race MEM_HIT");
-                return Data[id];
-            }
-            using var connection = new SqliteConnection(ConnectionString);
+    
+            using var connection = new SqliteConnection(_connectionString);
             Race? race = null;
             try
             {
@@ -63,7 +62,6 @@ namespace ProiectMpp.Repository
                         }
                     }
                     race.NoPlayers = race.Players.Count;
-                    Data.Add(id, race);
                     return race;
                 }
                 catch (Exception e)
@@ -74,16 +72,11 @@ namespace ProiectMpp.Repository
             return null;
         }
 
-        public new IDictionary<int, Race> FindAll()
+        public IDictionary<int, Race> FindAll()
         {
             Log.Info("Finding all Races");
-            return base.FindAll();
-        }
-
-        protected override void Load()
-        {
-            Log.Info("Finding all races");
-            using var connection = new SqliteConnection(ConnectionString);
+            using var connection = new SqliteConnection(_connectionString);
+            Dictionary<int, Race> data = new Dictionary<int, Race>();
             try
             {
                 connection.Open();
@@ -111,8 +104,10 @@ namespace ProiectMpp.Repository
                         }
                     }
                     race.NoPlayers = race.Players.Count;
-                    Data.Add(race.Id, race);
+                    data.Add(race.Id, race);
                 }
+                Log.Info("Found " + data.Count + " Races");
+                return data;
             }
             catch (Exception e)
             {
@@ -121,10 +116,11 @@ namespace ProiectMpp.Repository
             }
         }
 
-        public override Race Save(Race entity)
+
+        public  Race Save(Race entity)
         {
             Log.Info("Saving Race " + entity);
-            using var connection = new SqliteConnection(ConnectionString);
+            using var connection = new SqliteConnection(_connectionString);
             connection.Open();
             using var transaction = connection.BeginTransaction();
             try
@@ -153,7 +149,6 @@ namespace ProiectMpp.Repository
 
                 entity.NoPlayers = entity.Players.Count;
                 transaction.Commit();
-                Data.Add(entity.Id, entity);
                 return entity;
             }
             catch (Exception e)
@@ -164,13 +159,13 @@ namespace ProiectMpp.Repository
             }
         }
 
-        public override Race? Delete(int id)
+        public Race? Delete(int id)
         {
             Log.Info($"Deleting race with id {id}");
             Race? race = FindOne(id);
             if (race == null) return null;
 
-            using var connection = new SqliteConnection(ConnectionString);
+            using var connection = new SqliteConnection(_connectionString);
             connection.Open();
             using var transaction = connection.BeginTransaction();
             try
@@ -188,7 +183,6 @@ namespace ProiectMpp.Repository
                 cmd.ExecuteNonQuery();
                 
                 transaction.Commit();
-                Data.Remove(id);
                 return race;
             }
             catch (Exception e)
@@ -198,10 +192,10 @@ namespace ProiectMpp.Repository
                 return null;
             }
         }
-        public override Race Update(Race entity)
+        public Race Update(Race entity)
         {
             Log.Info($"Updating race {entity}");
-            using var connection = new SqliteConnection(ConnectionString);
+            using var connection = new SqliteConnection(_connectionString);
             connection.Open();
             using var transaction = connection.BeginTransaction();
             try
@@ -231,10 +225,7 @@ namespace ProiectMpp.Repository
                 }
 
                 transaction.Commit();
-                Race r = Data[entity.Id];
-                Data[entity.Id] = entity;
-                r.NoPlayers = entity.Players.Count;
-                return r;
+                return entity;
             }
             catch (Exception e)
             {

@@ -3,50 +3,48 @@ using System.Configuration;
 using log4net.Config;
 using log4net;
 using System.Reflection;
-using Mono.Data.Sqlite;
+using log4net.Util;
 using ProiectMpp.Domain;
-using ProiectMpp.Repository;
-
+using ProiectMpp.Repository.DatabaseRepository;
 
 
 namespace ProiectMpp;
 
 internal class Program
 {
-    private static readonly ILog Log = LogManager.GetLogger(typeof(Program));
     static void Main(string[] args)
     {
-        var entryAssembly = Assembly.GetEntryAssembly();
-        if (entryAssembly != null)
-        {
-            var logRepository = LogManager.GetRepository(entryAssembly);
-            XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
-            Log.Info("Hello, World!");
-        }
+        Team team = new Team("ECHIPA TEAM");
+        Player player = new Player("James May", "1110001110001", 5);
+       
+
+
+        
+        var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
+        XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
         
         string settings = ConfigurationManager.ConnectionStrings["MotoDB"].ConnectionString;
-        PlayerDBRepository playerDbRepository = new PlayerDBRepository(settings);
+        PlayerDbRepository playerDbRepository = new PlayerDbRepository(settings);
         Console.WriteLine("All players in the database:");
         foreach (var kvp in playerDbRepository.FindAll())
         {
             Console.WriteLine($"{kvp.Key} => {kvp.Value}");
         }
 
-        TeamDBRepository teamDbRepository = new TeamDBRepository(settings);
+        TeamDbRepository teamDbRepository = new TeamDbRepository(settings);
         Console.WriteLine("All teams in the database:");
         foreach (var kvp in teamDbRepository.FindAll())
         {
             Console.WriteLine($"{kvp.Key} => {kvp.Value}");
         }
 
-        RaceDBRepository raceDbRepository = new RaceDBRepository(settings, playerDbRepository);
+        RaceDbRepository raceDbRepository = new RaceDbRepository(settings, playerDbRepository);
         Console.WriteLine("All races in the database:");
         foreach (var kvp in raceDbRepository.FindAll())
         {
             Console.WriteLine($"{kvp.Key} => {kvp.Value}");
         }
 
-        Team team = new Team("McLaren");
         var teamOptional = teamDbRepository.Save(team);
         if (teamOptional != null)
         {
@@ -57,7 +55,6 @@ internal class Program
             Console.WriteLine("The team already exists in the database");
         }
 
-        Player player = new Player("Norris", "1110001110001", 3);
         var playerOptional = playerDbRepository.Save(player);
         if (playerOptional != null)
         {
@@ -83,7 +80,7 @@ internal class Program
         {
             Console.WriteLine($"{kvp.Key} => {kvp.Value}");
         }
-        
+
     }
 }
 

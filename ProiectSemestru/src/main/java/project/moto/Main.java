@@ -3,9 +3,9 @@ package project.moto;
 import project.moto.Domain.Player;
 import project.moto.Domain.Race;
 import project.moto.Domain.Team;
-import project.moto.Repository.PlayerDBRepository;
-import project.moto.Repository.RaceDBRepository;
-import project.moto.Repository.TeamDBRepository;
+import project.moto.Repository.DatasbaseRepository.PlayerDBRepository;
+import project.moto.Repository.DatasbaseRepository.RaceDBRepository;
+import project.moto.Repository.DatasbaseRepository.TeamDBRepository;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -21,6 +21,7 @@ public class Main {
         } catch (IOException e) {
             System.out.println("Cannot find bd.config " + e);
         }
+
         PlayerDBRepository playerDBRepository = new PlayerDBRepository(props);
         System.out.println("Toate playerii din db:");
         playerDBRepository.findAll().forEach((key, value) -> {
@@ -39,11 +40,11 @@ public class Main {
             System.out.println(key + " => " + value);
         });
 
-        Team team = new Team("Mercedes-Benz");
+        Team team = new Team("Ferrari");
         Optional<Team> teamOptional = teamDBRepository.save(team);
         teamOptional.ifPresentOrElse(System.out::println, () -> System.out.println("Echipa exista deja in baza de date"));
 
-        Player player = new Player("Hamilton_Motociclist", "1110001110001", 2);
+        Player player = new Player("Jeremy Clarkson", "1110001110001", 3);
         Optional<Player> playerOptional = playerDBRepository.save(player);
         playerOptional.ifPresentOrElse(System.out::println, () -> System.out.println("Playerul exista deja in baza de date"));
 
