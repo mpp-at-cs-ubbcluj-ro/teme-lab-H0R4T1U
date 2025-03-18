@@ -16,7 +16,7 @@ internal class Program
     {
         Team team = new Team("ECHIPA TEAM");
         Player player = new Player("James May", "1110001110001", 5);
-       
+        User user = new User("adminC#", "adminC#");
 
 
         
@@ -24,6 +24,7 @@ internal class Program
         XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
         
         string settings = ConfigurationManager.ConnectionStrings["MotoDB"].ConnectionString;
+        
         PlayerDbRepository playerDbRepository = new PlayerDbRepository(settings);
         Console.WriteLine("All players in the database:");
         foreach (var kvp in playerDbRepository.FindAll())
@@ -44,7 +45,19 @@ internal class Program
         {
             Console.WriteLine($"{kvp.Key} => {kvp.Value}");
         }
+        
+        var userDbRepository = new UserDbRepository(settings);
+        Console.WriteLine("All users in the database:");
+        foreach (var kvp in userDbRepository.FindAll())
+        {
+            Console.WriteLine($"{kvp.Key} => {kvp.Value}");
+        }
 
+        userDbRepository.Save(user);
+        Console.WriteLine(userDbRepository.FindByUsername("horatiu"));
+        Console.WriteLine(userDbRepository.FindOne(2));
+
+        
         var teamOptional = teamDbRepository.Save(team);
         if (teamOptional != null)
         {

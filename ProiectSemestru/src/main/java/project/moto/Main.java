@@ -3,9 +3,11 @@ package project.moto;
 import project.moto.Domain.Player;
 import project.moto.Domain.Race;
 import project.moto.Domain.Team;
+import project.moto.Domain.User;
 import project.moto.Repository.DatasbaseRepository.PlayerDBRepository;
 import project.moto.Repository.DatasbaseRepository.RaceDBRepository;
 import project.moto.Repository.DatasbaseRepository.TeamDBRepository;
+import project.moto.Repository.DatasbaseRepository.UserDBRepository;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -21,6 +23,11 @@ public class Main {
         } catch (IOException e) {
             System.out.println("Cannot find bd.config " + e);
         }
+
+        Team team = new Team("Ferrari");
+        Player player = new Player("Jeremy Clarkson", "1110001110001", 3);
+        User user = new User("admin", "admin");
+
 
         PlayerDBRepository playerDBRepository = new PlayerDBRepository(props);
         System.out.println("Toate playerii din db:");
@@ -40,11 +47,19 @@ public class Main {
             System.out.println(key + " => " + value);
         });
 
-        Team team = new Team("Ferrari");
+        UserDBRepository userDBRepository = new UserDBRepository(props);
+        System.out.println("Toate userii din db:");
+        userDBRepository.findAll().forEach((key, value) -> {
+            System.out.println(key + " => " + value);
+        });
+
+        Optional<User> userOptional = userDBRepository.save(user);
+        System.out.println("New User added:"+userDBRepository.findOne(2).get());
+        Optional<User> userOptional2 = userDBRepository.findByUsername("horatiu");
+        userOptional2.ifPresentOrElse(System.out::println, () -> System.out.println("Userul nu exista in baza de date"));
         Optional<Team> teamOptional = teamDBRepository.save(team);
         teamOptional.ifPresentOrElse(System.out::println, () -> System.out.println("Echipa exista deja in baza de date"));
 
-        Player player = new Player("Jeremy Clarkson", "1110001110001", 3);
         Optional<Player> playerOptional = playerDBRepository.save(player);
         playerOptional.ifPresentOrElse(System.out::println, () -> System.out.println("Playerul exista deja in baza de date"));
 
