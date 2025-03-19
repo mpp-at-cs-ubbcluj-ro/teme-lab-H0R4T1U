@@ -1,30 +1,34 @@
+using System.Data;
 using log4net;
 using log4net.Util;
 using ProiectMpp.Domain;
-using Mono.Data.Sqlite;
+using ProiectMpp.ConnectionUtills;
+
 namespace ProiectMpp.Repository.DatabaseRepository;
 
 public class UserDbRepository : IUserRepository
 {
 
     private static readonly ILog Log = LogManager.GetLogger(typeof(PlayerDbRepository));
-    private readonly string _connectionString;
+    private readonly IDbConnection _connection;
     public UserDbRepository(string connectionString)
     {
-        _connectionString = connectionString;
+        _connection = ConnectionFactory.getInstance().createConnection(connectionString);
         Log.Info("Initializing PlayerDBRepository");
     }
     
     public User? FindOne(int id)
     {
-        SqliteConnection connection = new SqliteConnection(_connectionString);
         try
         {
-            connection.Open();
-            using var cmd = connection.CreateCommand();
+            _connection.Open();
+            using var cmd = _connection.CreateCommand();
             cmd.CommandText = "SELECT * FROM User WHERE Id = @id";
-            cmd.Parameters.AddWithValue("@id", id);
-            using SqliteDataReader reader = cmd.ExecuteReader();
+            var parameter = cmd.CreateParameter();
+            parameter.ParameterName = "@id";
+            parameter.Value = id;
+            cmd.Parameters.Add(parameter);
+            using IDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
                 User p = new User(reader.GetString(1), reader.GetString(2));
@@ -41,7 +45,7 @@ public class UserDbRepository : IUserRepository
         }
         finally
         {
-            connection.Close();
+            _connection.Close();
 
         }
     }
@@ -49,14 +53,13 @@ public class UserDbRepository : IUserRepository
     public IDictionary<int,User> FindAll()
     {
         Log.Info($"Finding all Users");
-        SqliteConnection connection = new SqliteConnection(_connectionString);
         Dictionary<int,User> data = new Dictionary<int,User>();
         try
         {
-            connection.Open();
-            using var cmd = connection.CreateCommand();
+            _connection.Open();
+            using var cmd = _connection.CreateCommand();
             cmd.CommandText = "SELECT * FROM User";
-            using SqliteDataReader reader = cmd.ExecuteReader();
+            using IDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
                 User p = new User(reader.GetString(1), reader.GetString(2));
@@ -73,23 +76,29 @@ public class UserDbRepository : IUserRepository
         finally
         {
             Log.InfoExt("Found " + data.Count + " Users");
-            connection.Close();
+            _connection.Close();
         }
     }
     
     public User Save(User entity)
     {
         Log.Info("Saving User " + entity);
-        SqliteConnection connection = new SqliteConnection(_connectionString);
         try
         {
-            connection.Open();
-            using var cmd = connection.CreateCommand();
+            _connection.Open();
+            using var cmd = _connection.CreateCommand();
             cmd.CommandText = "INSERT INTO User (Username, Password) VALUES (@username,@password)";
-            cmd.Parameters.AddWithValue("@username", entity.Username);
-            cmd.Parameters.AddWithValue("@password", entity.Password);
+            var password = cmd.CreateParameter();
+            var username = cmd.CreateParameter();
+            username.ParameterName = "@username";
+            password.ParameterName = "@password";
+            username.Value = entity.Username;
+            password.Value = entity.Password;
+            
+            cmd.Parameters.Add(username);
+            cmd.Parameters.Add(password);
             cmd.ExecuteNonQuery();
-            using (var command = connection.CreateCommand())
+            using (var command = _connection.CreateCommand())
             {
                 command.CommandText = "SELECT last_insert_rowid();";
                 entity.Id = Convert.ToInt32(command.ExecuteScalar());
@@ -104,23 +113,25 @@ public class UserDbRepository : IUserRepository
         }
         finally
         {
-            connection.Close();
+            _connection.Close();
         }
     }
 
     public User? Delete(int id)
     {
         Log.Info($"Deleting User {id}");
-        SqliteConnection connection = new SqliteConnection(_connectionString);
         User? user = FindOne(id);
         if (user != null)
         {
             try
             {
-                connection.Open();
-                using var cmd = connection.CreateCommand();
+                _connection.Open();
+                using var cmd = _connection.CreateCommand();
                 cmd.CommandText = "DELETE FROM User WHERE id = @id";
-                cmd.Parameters.AddWithValue("@id", id);
+                var parameter = cmd.CreateParameter();
+                parameter.ParameterName = "@id";
+                parameter.Value = id;
+                cmd.Parameters.Add(id);
                 cmd.ExecuteNonQuery();
                 Log.InfoExt("User deleted: " + id.ToString());
                 return user;
@@ -132,7 +143,7 @@ public class UserDbRepository : IUserRepository
             }
             finally
             {
-                connection.Close();
+                _connection.Close();
             }
         }
         Log.InfoExt("User doesnt exist!");
@@ -144,15 +155,24 @@ public class UserDbRepository : IUserRepository
     public User Update(User entity)
     {
         Log.Info("Updating User " + entity);
-        SqliteConnection connection = new SqliteConnection(_connectionString);
         try
         {
-            connection.Open();
-            using var cmd = connection.CreateCommand();
+            _connection.Open();
+            using var cmd = _connection.CreateCommand();
             cmd.CommandText = "UPDATE User SET Username = @username, Password = @password WHERE id = @id";
-            cmd.Parameters.AddWithValue("@username", entity.Username);
-            cmd.Parameters.AddWithValue("@password", entity.Password);
-            cmd.Parameters.AddWithValue("@id", entity.Id);
+            var id = cmd.CreateParameter();
+            var username = cmd.CreateParameter();
+            var password = cmd.CreateParameter();
+            id.ParameterName = "@id";
+            username.ParameterName = "@username";
+            password.ParameterName = "@password";
+            id.Value = entity.Id;
+            username.Value = entity.Username;
+            password.Value = entity.Password;
+            
+            cmd.Parameters.Add(id);
+            cmd.Parameters.Add(username);
+            cmd.Parameters.Add(password);
             cmd.ExecuteNonQuery();
             Log.InfoExt("User updated: " + entity);
             return entity;
@@ -164,20 +184,22 @@ public class UserDbRepository : IUserRepository
         }
         finally
         {
-            connection.Close();
+            _connection.Close();
         }
     }
 
     public User? FindByUsername(string username)
     {
-        SqliteConnection connection = new SqliteConnection(_connectionString);
         try
         {
-            connection.Open();
-            using var cmd = connection.CreateCommand();
+            _connection.Open();
+            using var cmd = _connection.CreateCommand();
             cmd.CommandText = "SELECT * FROM User WHERE Username = @username";
-            cmd.Parameters.AddWithValue("@username", username);
-            using SqliteDataReader reader = cmd.ExecuteReader();
+            var parameter = cmd.CreateParameter();
+            parameter.ParameterName = "@username";
+            parameter.Value = username; 
+            cmd.Parameters.Add(parameter);
+            using IDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
                 User p = new User(reader.GetString(1), reader.GetString(2));
@@ -194,7 +216,7 @@ public class UserDbRepository : IUserRepository
         }
         finally
         {
-            connection.Close();
+            _connection.Close();
 
         }
     }

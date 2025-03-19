@@ -1,17 +1,18 @@
+using System.Data;
 using log4net;
 using ProiectMpp.Domain;
 using log4net.Util;
-using Mono.Data.Sqlite;
+using ProiectMpp.ConnectionUtills;
 
 namespace ProiectMpp.Repository.DatabaseRepository;
 
 public class TeamDbRepository: ITeamRepository
 {
     private static readonly ILog Log = LogManager.GetLogger(typeof(TeamDbRepository));
-    private readonly string _connectionString;
+    private readonly IDbConnection _connection;
     public TeamDbRepository(string connectionString)
     {
-        _connectionString = connectionString;
+        _connection = ConnectionFactory.getInstance().createConnection(connectionString);
         Log.Info("Initializing PlayerDBRepository ");
     }
 
@@ -20,15 +21,16 @@ public class TeamDbRepository: ITeamRepository
     {
         Log.Info($"Finding team with id {id}");
 
-        
-        SqliteConnection connection = new SqliteConnection(_connectionString);
         try
         {
-            connection.Open();
-            using var cmd = connection.CreateCommand();
+            _connection.Open();
+            using var cmd = _connection.CreateCommand();
             cmd.CommandText = "SELECT * FROM Team WHERE id = @id";
-            cmd.Parameters.AddWithValue("@id", id);
-            using SqliteDataReader reader = cmd.ExecuteReader();
+            var parameter = cmd.CreateParameter();
+            parameter.ParameterName = "@id";
+            parameter.Value = id;
+            cmd.Parameters.Add(parameter);
+            using IDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
                 Team t = new Team(reader.GetString(0));
@@ -45,7 +47,7 @@ public class TeamDbRepository: ITeamRepository
         }
         finally
         {
-                connection.Close();
+                _connection.Close();
         }
         
     }
@@ -53,14 +55,13 @@ public class TeamDbRepository: ITeamRepository
     public IDictionary<int,Team> FindAll()
     {
         Log.Info("Retrieving all teams");
-        SqliteConnection connection = new SqliteConnection(_connectionString);
         Dictionary<int,Team> data = new Dictionary<int,Team>();
         try
         {
-            connection.Open();
-            using var cmd = connection.CreateCommand();
+            _connection.Open();
+            using var cmd = _connection.CreateCommand();
             cmd.CommandText = "SELECT * FROM Team";
-            using SqliteDataReader reader = cmd.ExecuteReader();
+            using IDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
                 Team t = new Team(reader.GetString(0));
@@ -78,7 +79,7 @@ public class TeamDbRepository: ITeamRepository
         }
         finally
         {
-            connection.Close();
+            _connection.Close();
         }
         
     }
@@ -87,15 +88,17 @@ public class TeamDbRepository: ITeamRepository
     public Team Save(Team entity)
     {
         Log.Info($"Saving team with id {entity.Id}");
-        SqliteConnection connection = new SqliteConnection(_connectionString);
         try
         {
-            connection.Open();
-            using var cmd = connection.CreateCommand();
+            _connection.Open();
+            using var cmd = _connection.CreateCommand();
             cmd.CommandText = "INSERT INTO Team (Name) VALUES (@name)";
-            cmd.Parameters.AddWithValue("@name", entity.Name);
+            var parameter = cmd.CreateParameter();
+            parameter.ParameterName = "@name";
+            parameter.Value = entity.Name;
+            cmd.Parameters.Add(parameter);
             cmd.ExecuteNonQuery();
-            using (var command = connection.CreateCommand())
+            using (var command = _connection.CreateCommand())
             {
                 command.CommandText = "SELECT last_insert_rowid();";
                 entity.Id = Convert.ToInt32(command.ExecuteScalar());
@@ -110,23 +113,25 @@ public class TeamDbRepository: ITeamRepository
         }
         finally
         {
-            connection.Close();
+            _connection.Close();
         }
     }
 
     public Team? Delete(int id)
     {
         Log.Info($"Deleting team with id {id}");
-        SqliteConnection connection = new SqliteConnection(_connectionString);
         Team? team = FindOne(id);
         if (team != null)
         {
             try
             {
-                connection.Open();
-                using var cmd = connection.CreateCommand();
+                _connection.Open();
+                using var cmd = _connection.CreateCommand();
                 cmd.CommandText = "DELETE FROM Team WHERE id = @id";
-                cmd.Parameters.AddWithValue("@id", id);
+                var parameter = cmd.CreateParameter();
+                parameter.ParameterName = "@id";
+                parameter.Value = id;
+                cmd.Parameters.Add(parameter);
                 cmd.ExecuteNonQuery();
                 Log.InfoExt("Team deleted: " + id.ToString());
                 return team;
@@ -138,7 +143,7 @@ public class TeamDbRepository: ITeamRepository
             }
             finally
             {
-                connection.Close();
+                _connection.Close();
             }
         }
 
@@ -148,14 +153,21 @@ public class TeamDbRepository: ITeamRepository
     public Team Update(Team entity)
     {
         Log.Info($"Updating team with id {entity.Id}");
-        SqliteConnection connection = new SqliteConnection(_connectionString);
         try
         {
-            connection.Open();
-            using var cmd = connection.CreateCommand();
+            _connection.Open();
+            using var cmd = _connection.CreateCommand();
             cmd.CommandText = "UPDATE Team SET Name = @name WHERE id = @id";
-            cmd.Parameters.AddWithValue("@name", entity.Name);
-            cmd.Parameters.AddWithValue("@id", entity.Id);
+            var name = cmd.CreateParameter();
+            name.ParameterName = "@name";
+            name.Value = entity.Name;
+            
+            var id = cmd.CreateParameter();
+            id.ParameterName = "@id";
+            id.Value = entity.Id;
+            
+            cmd.Parameters.Add(name);
+            cmd.Parameters.Add(id);
             cmd.ExecuteNonQuery();
             Log.InfoExt("Team updated: " + entity);
             return entity;
@@ -167,7 +179,7 @@ public class TeamDbRepository: ITeamRepository
         }
         finally
         {
-            connection.Close();
+            _connection.Close();
         }
     }
 }

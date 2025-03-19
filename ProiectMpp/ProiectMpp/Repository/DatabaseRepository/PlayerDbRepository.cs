@@ -1,30 +1,34 @@
+using System.Data;
 using log4net;
 using log4net.Util;
 using ProiectMpp.Domain;
-using Mono.Data.Sqlite;
+using ProiectMpp.ConnectionUtills;
+
 namespace ProiectMpp.Repository.DatabaseRepository;
 
 public class PlayerDbRepository : IPlayerRepository
 {
 
     private static readonly ILog Log = LogManager.GetLogger(typeof(PlayerDbRepository));
-    private readonly string _connectionString;
+    private readonly IDbConnection _connection;
     public PlayerDbRepository(string connectionString)
     {
-        _connectionString = connectionString;
+        _connection = ConnectionFactory.getInstance().createConnection(connectionString);
         Log.Info("Initializing PlayerDBRepository");
     }
     
     public Player? FindOne(int id)
     {
-        SqliteConnection connection = new SqliteConnection(_connectionString);
         try
         {
-            connection.Open();
-            using var cmd = connection.CreateCommand();
+            _connection.Open();
+            using var cmd = _connection.CreateCommand();
             cmd.CommandText = "SELECT * FROM Player WHERE Id = @id";
-            cmd.Parameters.AddWithValue("@id", id);
-            using SqliteDataReader reader = cmd.ExecuteReader();
+            var parameter = cmd.CreateParameter();
+            parameter.ParameterName = "@id";
+            parameter.Value = id;
+            cmd.Parameters.Add(parameter);
+            using IDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
                 Player p = new Player(reader.GetString(0), reader.GetString(2), reader.GetInt32(3));
@@ -41,7 +45,7 @@ public class PlayerDbRepository : IPlayerRepository
         }
         finally
         {
-            connection.Close();
+            _connection.Close();
 
         }
     }
@@ -49,14 +53,13 @@ public class PlayerDbRepository : IPlayerRepository
     public IDictionary<int,Player> FindAll()
     {
         Log.Info($"Finding all players");
-        SqliteConnection connection = new SqliteConnection(_connectionString);
         Dictionary<int,Player> data = new Dictionary<int,Player>();
         try
         {
-            connection.Open();
-            using var cmd = connection.CreateCommand();
+            _connection.Open();
+            using var cmd = _connection.CreateCommand();
             cmd.CommandText = "SELECT * FROM Player";
-            using SqliteDataReader reader = cmd.ExecuteReader();
+            using IDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
                 Player p = new Player(reader.GetString(0), reader.GetString(2), reader.GetInt32(3));
@@ -73,24 +76,34 @@ public class PlayerDbRepository : IPlayerRepository
         finally
         {
             Log.InfoExt("Found " + data.Count + " players");
-            connection.Close();
+            _connection.Close();
         }
     }
     
     public Player Save(Player entity)
     {
         Log.Info("Saving player " + entity);
-        SqliteConnection connection = new SqliteConnection(_connectionString);
         try
         {
-            connection.Open();
-            using var cmd = connection.CreateCommand();
+            _connection.Open();
+            using var cmd = _connection.CreateCommand();
             cmd.CommandText = "INSERT INTO Player (Name, Code,Team) VALUES (@name,@code, @team)";
-            cmd.Parameters.AddWithValue("@name", entity.Name);
-            cmd.Parameters.AddWithValue("@code", entity.Code);
-            cmd.Parameters.AddWithValue("@team", entity.Team);
+            var name = cmd.CreateParameter();
+            var code = cmd.CreateParameter();
+            var team = cmd.CreateParameter();
+            name.ParameterName = "@name";
+            name.Value = entity.Name;
+            code.ParameterName = "@code";
+            code.Value = entity.Code;
+            team.ParameterName = "@team";
+            team.Value = entity.Team;
+            
+            cmd.Parameters.Add(name);
+            cmd.Parameters.Add(code);
+            cmd.Parameters.Add(team);
+            
             cmd.ExecuteNonQuery();
-            using (var command = connection.CreateCommand())
+            using (var command = _connection.CreateCommand())
             {
                 command.CommandText = "SELECT last_insert_rowid();";
                 entity.Id = Convert.ToInt32(command.ExecuteScalar());
@@ -105,23 +118,25 @@ public class PlayerDbRepository : IPlayerRepository
         }
         finally
         {
-            connection.Close();
+            _connection.Close();
         }
     }
 
     public Player? Delete(int id)
     {
         Log.Info($"Deleting player {id}");
-        SqliteConnection connection = new SqliteConnection(_connectionString);
         Player? player = FindOne(id);
         if (player != null)
         {
             try
             {
-                connection.Open();
-                using var cmd = connection.CreateCommand();
+                _connection.Open();
+                using var cmd = _connection.CreateCommand();
                 cmd.CommandText = "DELETE FROM Player WHERE id = @id";
-                cmd.Parameters.AddWithValue("@id", id);
+                var parameter = cmd.CreateParameter();
+                parameter.ParameterName = "@id";
+                parameter.Value = id;
+                cmd.Parameters.Add(parameter);
                 cmd.ExecuteNonQuery();
                 Log.InfoExt("Player deleted: " + id.ToString());
                 return player;
@@ -133,7 +148,7 @@ public class PlayerDbRepository : IPlayerRepository
             }
             finally
             {
-                connection.Close();
+                _connection.Close();
             }
         }
         Log.InfoExt("Player doesnt exist!");
@@ -145,16 +160,29 @@ public class PlayerDbRepository : IPlayerRepository
     public Player Update(Player entity)
     {
         Log.Info("Updating player " + entity);
-        SqliteConnection connection = new SqliteConnection(_connectionString);
         try
         {
-            connection.Open();
-            using var cmd = connection.CreateCommand();
+            _connection.Open();
+            using var cmd = _connection.CreateCommand();
             cmd.CommandText = "UPDATE Player SET Name = @name, Code = @code, Team = @team WHERE id = @id";
-            cmd.Parameters.AddWithValue("@name", entity.Name);
-            cmd.Parameters.AddWithValue("@id", entity.Id);
-            cmd.Parameters.AddWithValue("@code", entity.Code);
-            cmd.Parameters.AddWithValue("@team", entity.Team);
+            
+            var name = cmd.CreateParameter();
+            var code = cmd.CreateParameter();
+            var team = cmd.CreateParameter();
+            var id = cmd.CreateParameter();
+            id.ParameterName = "@id";
+            id.Value = entity.Id;
+            name.ParameterName = "@name";
+            name.Value = entity.Name;
+            code.ParameterName = "@code";
+            code.Value = entity.Code;
+            team.ParameterName = "@team";
+            team.Value = entity.Team;
+            
+            cmd.Parameters.Add(name);
+            cmd.Parameters.Add(id);
+            cmd.Parameters.Add(code);
+            cmd.Parameters.Add(team);
             cmd.ExecuteNonQuery();
             Log.InfoExt("Player updated: " + entity);
             return entity;
@@ -166,7 +194,7 @@ public class PlayerDbRepository : IPlayerRepository
         }
         finally
         {
-            connection.Close();
+            _connection.Close();
         }
     }
 }

@@ -3,7 +3,6 @@ using System.Configuration;
 using log4net.Config;
 using log4net;
 using System.Reflection;
-using log4net.Util;
 using ProiectMpp.Domain;
 using ProiectMpp.Repository.DatabaseRepository;
 
@@ -14,9 +13,9 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        Team team = new Team("ECHIPA TEAM");
-        Player player = new Player("James May", "1110001110001", 5);
-        User user = new User("adminC#", "adminC#");
+        Team team = new Team("team nou");
+        Player player = new Player("James May2", "1110001110001", 5);
+        User user = new User("adminNou", "adminC#");
 
 
         
@@ -78,7 +77,7 @@ internal class Program
             Console.WriteLine("The player already exists in the database");
         }
 
-        Race r = raceDbRepository.FindOne(1);
+        Race? r = raceDbRepository.FindOne(1);
         if (r != null)
         {
             List<Player> players = r.Players;
